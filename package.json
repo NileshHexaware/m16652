@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "node-rest-client": "^3.1.0"
   },
   "devDependencies": {},
   "scripts": {
@@ -12,4 +13,4 @@
   },
   "author": "Nilesh",
   "license": "ISC"
-} 
+}
