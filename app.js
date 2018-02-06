@@ -24,15 +24,15 @@ app.use(bodyParser.json());
         "imageUrl": "https://botw-pd.s3.amazonaws.com/styles/logo-thumbnail/s3/122013/untitled-1_86.png?itok=jqHZFAoG",
         "buttons": [
           {
-            "text": "Network",
+            "text": "DHCP",
             "postback": ""
           },
           {
-            "text": "Hardware",
+            "text": "DNS",
             "postback": ""
           },
           {
-            "text": "Software",
+            "text": "IP",
             "postback": ""
           }
         ]
