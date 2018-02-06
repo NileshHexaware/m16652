@@ -69,15 +69,15 @@ app.use(bodyParser.json());
       "imageUrl": "https://botw-pd.s3.amazonaws.com/styles/logo-thumbnail/s3/122013/untitled-1_86.png?itok=jqHZFAoG",
       "buttons": [
         {
-          "text": "DHCP",
+          "text": "Monitor",
           "postback": ""
         },
         {
-          "text": "DNS",
+          "text": "Keyboard",
           "postback": ""
         },
         {
-          "text": "IP",
+          "text": "Mouse",
           "postback": ""
         }
       ]
@@ -104,15 +104,15 @@ return res.json(fbresponse);
         "imageUrl": "https://botw-pd.s3.amazonaws.com/styles/logo-thumbnail/s3/122013/untitled-1_86.png?itok=jqHZFAoG",
         "buttons": [
           {
-            "text": "DHCP",
+            "text": "Email",
             "postback": ""
           },
           {
-            "text": "DNS",
+            "text": "OS",
             "postback": ""
           },
           {
-            "text": "IP",
+            "text": "Mac",
             "postback": ""
           }
         ]
