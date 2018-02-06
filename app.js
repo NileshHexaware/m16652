@@ -42,13 +42,7 @@ var fbresponse={
         "speech": ""
       }
     ]
-
-
-
-
-
-
-
+    
     //   console.log('Received the request & it is:::'+JSON.stringify(req.body));
     //   if(req.body.result.action=='input.personaldetails')
     //     {     var resagent='Your Ticket has been booked ';
@@ -59,7 +53,8 @@ var fbresponse={
     //     source:'Flight Booking'
     //   });
     // }
-  }
+  };
+  return res.json(fbresponse);
 }
 });
  
