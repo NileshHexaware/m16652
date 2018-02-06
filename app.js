@@ -12,8 +12,7 @@ app.use(bodyParser.json());
 
     if (req.body.result.action=== 'Network')
     {
-
-  var fbresponse={
+    var fbresponse={
     "speech": "",
     "messages": [
       {
@@ -56,7 +55,77 @@ app.use(bodyParser.json());
   };
   return res.json(fbresponse);
 }
-});
+
+  if (req.body.result.action=== 'Network')
+  {
+  var fbresponse={
+  "speech": "",
+  "messages": [
+    {
+      "type": 1,
+      "platform": "facebook",
+      "title": "Servicenow",
+      "subtitle": "Servicenow",
+      "imageUrl": "https://botw-pd.s3.amazonaws.com/styles/logo-thumbnail/s3/122013/untitled-1_86.png?itok=jqHZFAoG",
+      "buttons": [
+        {
+          "text": "DHCP",
+          "postback": ""
+        },
+        {
+          "text": "DNS",
+          "postback": ""
+        },
+        {
+          "text": "IP",
+          "postback": ""
+        }
+      ]
+    },
+    {
+      "type": 0,
+      "speech": ""
+    }
+  ]
+};
+return res.json(fbresponse);
+  }
+
+  if (req.body.result.action=== 'Network')
+    {
+    var fbresponse={
+    "speech": "",
+    "messages": [
+      {
+        "type": 1,
+        "platform": "facebook",
+        "title": "Servicenow",
+        "subtitle": "Servicenow",
+        "imageUrl": "https://botw-pd.s3.amazonaws.com/styles/logo-thumbnail/s3/122013/untitled-1_86.png?itok=jqHZFAoG",
+        "buttons": [
+          {
+            "text": "DHCP",
+            "postback": ""
+          },
+          {
+            "text": "DNS",
+            "postback": ""
+          },
+          {
+            "text": "IP",
+            "postback": ""
+          }
+        ]
+      },
+      {
+        "type": 0,
+        "speech": ""
+      }
+    ]
+  };
+  return res.json(fbresponse);
+}
+    });
  
 
 
