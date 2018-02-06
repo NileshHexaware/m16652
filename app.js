@@ -10,10 +10,10 @@ var fbresponse="";
 
    app.post('/',function(req,res){
 
-    if (req.body.result.action==='')
+    if (req.body.result.action==='Network')
     {
 
-var fbresponse={
+  var fbresponse={
     "speech": "",
     "messages": [
       {
@@ -42,7 +42,7 @@ var fbresponse={
         "speech": ""
       }
     ]
-    
+
     //   console.log('Received the request & it is:::'+JSON.stringify(req.body));
     //   if(req.body.result.action=='input.personaldetails')
     //     {     var resagent='Your Ticket has been booked ';
