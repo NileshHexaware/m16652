@@ -21,7 +21,7 @@ var getIncident=  client.get("https://dev18442.service-now.com/api/now/v1/table/
 ,function (data, response)
  {
     // parsed response body as js object 
-
+    qs: { number: ticketnumber }
     var obj=JSON.stringify(data);
    console.log(obj);
    
