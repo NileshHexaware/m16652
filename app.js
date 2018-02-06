@@ -6,11 +6,11 @@ var app = express();
 var portC = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
-var fbresponse="";
+
 
    app.post('/',function(req,res){
 
-    if (req.body.result.action==='Network')
+    if (req.body.result.action=== 'Network')
     {
 
   var fbresponse={
