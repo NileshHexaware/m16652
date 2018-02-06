@@ -10,12 +10,10 @@ var fbresponse="";
 
    app.post('/',function(req,res){
 
-    if (req.body.result.action==='Network')
+    if (req.body.result.action==='')
     {
 
 var fbresponse={
-
-
     "speech": "",
     "messages": [
       {
