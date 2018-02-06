@@ -24,6 +24,7 @@ var getIncident=  client.get("https://dev18442.service-now.com/api/now/v1/table/
 
     var obj=JSON.stringify(data);
    console.log(obj);
+   
 
     //console.log(data);
     // raw response 
