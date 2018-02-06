@@ -56,7 +56,7 @@ app.use(bodyParser.json());
   return res.json(fbresponse);
 }
 
-  if (req.body.result.action=== 'Network')
+  if (req.body.result.action=== 'Hardware')
   {
   var fbresponse={
   "speech": "",
@@ -91,7 +91,7 @@ app.use(bodyParser.json());
 return res.json(fbresponse);
   }
 
-  if (req.body.result.action=== 'Network')
+  if (req.body.result.action=== 'Software')
     {
     var fbresponse={
     "speech": "",
