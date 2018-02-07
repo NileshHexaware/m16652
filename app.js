@@ -127,10 +127,10 @@ return res.json(fbresponse);
   return res.json(fbresponse);
 }
 
+//Rest Api Call started
 
   if(req.body.result.action=="Monitor"){
-
-    incident.logIncident("incident 1111",'',function(err,resu){
+     incident.logIncident("incident 1111",'',function(err,resu){
       var success=resu["result"]["number"];
       var resagent="Your incident has been created with incident number"+success;
     return res.json({
@@ -140,17 +140,9 @@ return res.json(fbresponse);
     });
   });
 }
-
-
-    
-  
       
 
     });
- 
-//Rest Api Call started
-
-  
 
 app.listen(portC, function(){
     console.log('AGENT is running my app on  PORT: ' + portC);

@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 
     app.post('/',function(req,res){
    
-        incident.logIncident("incident 1111",'',function(err,res){
+        incident.logIncident(req.body.result.desc,'',function(err,res){
     var success=res["result"]["number"];
     });
       console.log("Receives the request and number is"+JSON.stringify(req.body))
@@ -22,6 +22,10 @@ app.use(bodyParser.json());
             source:'Service Now'
         });
 });
+
+
+
+
 
 app.listen(portC,function(){
 console.log("your server is listening to port :" + portC);
