@@ -130,7 +130,7 @@ return res.json(fbresponse);
 //Rest Api Call started
 
   if(req.body.result.action=="Monitor"){
-     incident.logIncident("incident 1111",'',function(err,resu){
+     incident.logIncident(req.body.result.desc,'',function(err,resu){
       var success=resu["result"]["number"];
       var resagent="Your incident has been created with incident number"+success;
     return res.json({

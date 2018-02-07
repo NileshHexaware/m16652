@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 
     app.post('/',function(req,res){
    
-        incident.logIncident(req.body.result.desc,'',function(err,res){
+        incident.logIncident("incident 1111",'',function(err,res){
     var success=res["result"]["number"];
     });
       console.log("Receives the request and number is"+JSON.stringify(req.body))
