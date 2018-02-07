@@ -127,21 +127,22 @@ return res.json(fbresponse);
   return res.json(fbresponse);
 }
 
-incident.logIncident("incident 1111",'',function(err,resu){
-  var success=resu["result"]["number"];
 
   if(req.body.result.action=="Monitor"){
+
+    incident.logIncident("incident 1111",'',function(err,resu){
+      var success=resu["result"]["number"];
+    
     var resagent="Your incident has been created with incident number"+success;
     return res.json({
       speech:resagent,
       displayText: resagent,
       source:'Service Now'
-  })
-   
-
-    }
-
+    })
   });
+}
+
+
     
   
       
