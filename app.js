@@ -126,24 +126,31 @@ return res.json(fbresponse);
   };
   return res.json(fbresponse);
 }
+
+incident.logIncident("incident 1111",'',function(err,resu){
+  var success=resu["result"]["number"];
+
+  if(req.body.result.action=="Monitor"){
+    var resagent="Your incident has been created with incident number"+success;
+    return res.json({
+      speech:resagent,
+      displayText: resagent,
+      source:'Service Now'
+  })
+   
+
+    }
+
+  });
+    
+  
+      
+
     });
  
 //Rest Api Call started
 
-    // incident.logIncident("incident 1111",'',function(err,resu){
-    //   var success=resu["result"]["number"];
-    //   });
-    //     console.log("Receives the request and number is"+JSON.stringify(req.body))
-   
-    //    if(req.body.result.action=="Monitor"){
-    //     var resagent="Your incident has been created with incident number"+success;
-    //     }
-    //        return res.json({
-    //           speech:resagent,
-    //           displayText: resagent,
-    //           source:'Service Now'
-    //       });
-
+  
 
 app.listen(portC, function(){
     console.log('AGENT is running my app on  PORT: ' + portC);
