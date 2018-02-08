@@ -11,7 +11,7 @@ var incident=require('./app3');
 
    app.post('/',function(req,res){
 
-    if (req.body.result.action=== 'Network')
+    if (req.body.result.parameters.Category=== 'Network')
     {
     var fbresponse={
     "speech": "",
@@ -57,7 +57,7 @@ var incident=require('./app3');
   return res.json(fbresponse);
 }
 
-  if (req.body.result.action=== 'Hardware')
+  if (req.body.result.parameters.Category=== 'Hardware')
   {
   var fbresponse={
   "speech": "",
@@ -92,7 +92,7 @@ var incident=require('./app3');
 return res.json(fbresponse);
   }
 
-  if (req.body.result.action=== 'Software')
+  if (req.body.result.parameters.Category=== 'Software')
     {
     var fbresponse={
     "speech": "",
