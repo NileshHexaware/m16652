@@ -1,3 +1,5 @@
+import { json } from './C:/Users/nileshde/AppData/Local/Microsoft/TypeScript/2.6/node_modules/@types/body-parser';
+
 
 var request = require('http');
 var express=require('express');
@@ -146,18 +148,24 @@ return res.json(fbresponse);
 if(req.body.result.action=="getincident")
 {
   incident.statusIncident(req.body.result.parameters.incidentno,function(err,resu){
-
-    var incdesc=resu["result"]["description"];
-    var incresolved_at=resu["result"]["resolved_at"];
-    var incbusiness_stc=resu["result"]["business_stc"];
-    var incsys_mod_count=resu["result"]["sys_mod_count"];
+  var jsonparse= JSON.parse(resu);
+    var incdesc=jsonparse["result"]["description"];
+    var incresolved_at=jsonparse["result"]["resolved_at"];
+    var incbusiness_stc=jsonparse["result"]["business_stc"];
+    var incsys_mod_count=jsonparse["result"]["sys_mod_count"];
 
     var incstatus="Your incident status is below \n 1.Incident Descrption = "+incident +"\n 2.Incident resolved on = "+incresolved_at+"\n 3.Incident business status = "+incbusiness_stc+"\n 4.Incident system mode count = "+incsys_mod_count;
     
     return res.json( {
     speech:incstatus,
     displayText:incstatus,
-    source:'Service Now'
+    source:'Service Now',
+    followupEvent:{
+      "name":"startmenmenu",
+      "data":{
+
+      }
+    }
  
     });
   
