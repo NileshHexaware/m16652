@@ -1,7 +1,7 @@
 var request = require("request");
  
 module.exports = {
-    'logIncident' : function(desc, severity, callback){
+    'logIncident' : function(desc, severity,category,subcategory,callback){
  
         console.log("The Final Message Utterance to send POST as Query to Service Now");
             var options = { method: 'POST',
@@ -15,6 +15,8 @@ module.exports = {
            { short_description: desc,
              caller_id: 'Pourab Karchaudhuri',
              urgency: severity ,
+             category :category ,
+             subcategory :subcategory ,
              comments: 'Chatbot Testing' },
           json: true };
  
