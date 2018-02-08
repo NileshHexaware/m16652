@@ -131,8 +131,8 @@ return res.json(fbresponse);
 
   if(req.body.result.action=="CreateIncident.CreateIncident-custom"){
 
-    var category=req.body.contexts[0].parameters.Category;
-     incident.logIncident(req.body.result.parameters.desc,req.body.result.parameters.severity,category,req.body.result.parameters.subcategory,function(err,resu){
+    var cat=req.body.result.contexts[0].parameters.Category;
+     incident.logIncident(req.body.result.parameters.desc,req.body.result.parameters.severity,cat,req.body.result.parameters.subcategory,function(err,resu){
       var success=resu["result"]["number"];
       var resagent="Your incident has been created with incident number"+success;
     return res.json({
