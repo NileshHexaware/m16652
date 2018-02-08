@@ -25,15 +25,15 @@ var incident=require('./app3');
         "buttons": [
           {
             "text": "DHCP",
-            "postback": ""
+            "postback": "DHCP"
           },
           {
             "text": "DNS",
-            "postback": ""
+            "postback": "DNS"
           },
           {
             "text": "IP",
-            "postback": ""
+            "postback": "IP"
           }
         ]
       },
@@ -71,15 +71,15 @@ var incident=require('./app3');
       "buttons": [
         {
           "text": "Monitor",
-          "postback": ""
+          "postback": "Monitor"
         },
         {
           "text": "Keyboard",
-          "postback": ""
+          "postback": "Keyboard"
         },
         {
           "text": "Mouse",
-          "postback": ""
+          "postback": "Mouse"
         }
       ]
     },
@@ -106,15 +106,15 @@ return res.json(fbresponse);
         "buttons": [
           {
             "text": "Email",
-            "postback": ""
+            "postback": "Email"
           },
           {
             "text": "OS",
-            "postback": ""
+            "postback": "OS"
           },
           {
             "text": "Mac",
-            "postback": ""
+            "postback": "Mac"
           }
         ]
       },
@@ -129,7 +129,7 @@ return res.json(fbresponse);
 
 //Rest Api Call started
 
-  if(req.body.result.action=="Monitor"){
+  if(req.body.result.action=="CreateIncident.CreateIncident-custom"){
      incident.logIncident(req.body.result.parameters.desc,req.body.result.parameters.severity,function(err,resu){
       var success=resu["result"]["number"];
       var resagent="Your incident has been created with incident number"+success;
