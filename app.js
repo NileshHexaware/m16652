@@ -130,7 +130,7 @@ return res.json(fbresponse);
 //Rest Api Call started
 
   if(req.body.result.action=="CreateIncident.CreateIncident-custom"){
-     incident.logIncident(req.body.result.parameters.desc,req.body.result.parameters.severity,req.body.result.parameters.subcategory,function(err,resu){
+     incident.logIncident(req.body.result.parameters.desc,req.body.result.parameters.severity,req.body.result.context[0].parameters.category,req.body.result.parameters.subcategory,function(err,resu){
       var success=resu["result"]["number"];
       var resagent="Your incident has been created with incident number"+success;
     return res.json({
