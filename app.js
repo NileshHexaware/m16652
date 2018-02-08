@@ -134,7 +134,7 @@ return res.json(fbresponse);
     var cat=req.body.result.contexts[0].parameters.Category;
      incident.logIncident(req.body.result.parameters.desc,req.body.result.parameters.severity,cat,req.body.result.parameters.subcategory,function(err,resu){
       var success=resu["result"]["number"];
-      var resagent="Your incident has been created with incident number:"+success +".Note it down for further enquiry.";
+      var resagent="Your incident has been created with incident number:"+success +".\n Note it down for further enquiry.";
     return res.json({
       speech:resagent,
       displayText: resagent,
