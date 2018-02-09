@@ -158,7 +158,10 @@ if(req.body.result.action=="getincident")
     return res.json( {
     speech:incstatus,
     displayText:incstatus,
-    source:'Service Now'
+    source:'Service Now',
+    followupEvent :{
+      "name":"mainmenuevent"
+    }
     });
   });
 }
