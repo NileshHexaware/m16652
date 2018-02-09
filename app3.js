@@ -40,7 +40,7 @@ module.exports = {
              'cache-control': 'no-cache',
              authorization: 'Basic MzMyMzg6YWJjMTIz',
              'content-type': 'application/json' },
-    };
+           };
 
           request(options, function(error, response, body) {
             if (error) throw new Error(error);
