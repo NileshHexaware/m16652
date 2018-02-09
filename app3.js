@@ -41,9 +41,9 @@ module.exports = {
              authorization: 'Basic MzMyMzg6YWJjMTIz',
              'content-type': 'application/json' },
           body:
-           { short_description: desc,
+           { //short_description: desc,
              caller_id: 'Pourab Karchaudhuri',
-             urgency: severity ,
+             //urgency: severity ,
              comments: 'Chatbot Testing' },
           json: true };
 
