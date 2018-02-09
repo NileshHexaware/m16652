@@ -163,6 +163,15 @@ if(req.body.result.action=="getincident")
       "name":"mainmenuevent",
       "data":{
         "response":incstatus
+      },
+      fulfillment: {
+       speech: incstatus,
+        "messages": [
+          {
+            "type": 0,
+            speech: incstatus
+          }
+        ]
       }
     }
     });
