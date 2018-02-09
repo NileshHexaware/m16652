@@ -156,11 +156,14 @@ if(req.body.result.action=="getincident")
     var incstatus="Your incident status is below \n 1.Incident Descrption = "+jsonparse.result[0].description ;
     //+"\n 2.Incident resolved on = "+jsonparse.result[0].incresolved_at+"\n 3.Incident business status = "+jsonparse.result[1].incbusiness_stc+"\n 4.Incident system mode count = "+jsonparse.result[1].incsys_mod_count;
     return res.json( {
-    speech:incstatus,
-    displayText:incstatus,
-    source:'Service Now',
+    // speech:incstatus,
+    // displayText:incstatus,
+    // source:'Service Now',
     followupEvent :{
-      "name":"mainmenuevent"
+      "name":"mainmenuevent",
+      "data":{
+        "response":incstatus
+      }
     }
     });
   });
