@@ -160,13 +160,6 @@ if(req.body.result.action=="getincident")
     speech:incstatus,
     displayText:incstatus,
     source:'Service Now',
-    followupEvent:{
-      "name":"startmenmenu",
-      "data":{
-
-      }
-    }
- 
     });
   
   });
