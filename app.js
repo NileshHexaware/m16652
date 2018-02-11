@@ -153,7 +153,7 @@ if(req.body.result.action=="getincident")
     // var incbusiness_stc=jsonparse["result"]["business_stc"];
     // var incsys_mod_count=jsonparse["result"]["sys_mod_count"];
   console.log(jsonparse.result[0].description);
-    var incstatus="Your incident status is below \n 1.Incident Descrption = "+jsonparse.result[0].description ;
+   // var incstatus="Your incident status is below \n 1.Incident Descrption = "+ ;
     //+"\n 2.Incident resolved on = "+jsonparse.result[0].incresolved_at+"\n 3.Incident business status = "+jsonparse.result[1].incbusiness_stc+"\n 4.Incident system mode count = "+jsonparse.result[1].incsys_mod_count;
     return res.json( {
     // speech:incstatus,
@@ -162,7 +162,9 @@ if(req.body.result.action=="getincident")
     followupEvent :{
       "name":"mainmenuevent",
       "data":{
-        "incstatus":incstatus
+        "incstatus":jsonparse.result[0].description,
+        "incnumber":jsonparse.result[0].number,
+        "resolved_at":jsonparse.result[0].resolved_at
       }
     }
    });
