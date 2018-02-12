@@ -1,5 +1,4 @@
 
-
 var request = require('http');
 var express=require('express');
 var bodyParser = require('body-parser');
@@ -152,9 +151,11 @@ if(req.body.result.action=="getincident")
     // var incresolved_at=jsonparse["result"]["resolved_at"];
     // var incbusiness_stc=jsonparse["result"]["business_stc"];
     // var incsys_mod_count=jsonparse["result"]["sys_mod_count"];
-  console.log(jsonparse.result[0].description);
-   // var incstatus="Your incident status is below \n 1.Incident Descrption = "+ ;
+    // var incstatus="Your incident status is below \n 1.Incident Descrption = "+ ;
     //+"\n 2.Incident resolved on = "+jsonparse.result[0].incresolved_at+"\n 3.Incident business status = "+jsonparse.result[1].incbusiness_stc+"\n 4.Incident system mode count = "+jsonparse.result[1].incsys_mod_count;
+    if(jsonparse.hasOwnProperty('result'))
+    {
+    console.log(jsonparse.result[0].description);
     return res.json( {
     // speech:incstatus,
     // displayText:incstatus,
@@ -168,6 +169,15 @@ if(req.body.result.action=="getincident")
       }
     }
    });
+  }
+  else
+  {
+    return json({
+      speech:"This Incident number record does not exist.Please enter correct incident number",
+      displayText:"This Incident number record does not exist.Please enter correct incident number",
+      source:"Service Now"
+    });
+  }
   });
 }
 
