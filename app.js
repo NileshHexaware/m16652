@@ -147,19 +147,10 @@ if(req.body.result.action=="getincident")
 {
   incident.statusIncident(req.body.result.parameters.incidentno,function(err,resul){
    var jsonparse= JSON.parse(resul);
-    // var incdesc=jsonparse["result"]["description"];
-    // var incresolved_at=jsonparse["result"]["resolved_at"];
-    // var incbusiness_stc=jsonparse["result"]["business_stc"];
-    // var incsys_mod_count=jsonparse["result"]["sys_mod_count"];
-    // var incstatus="Your incident status is below \n 1.Incident Descrption = "+ ;
-    //+"\n 2.Incident resolved on = "+jsonparse.result[0].incresolved_at+"\n 3.Incident business status = "+jsonparse.result[1].incbusiness_stc+"\n 4.Incident system mode count = "+jsonparse.result[1].incsys_mod_count;
-    if(jsonparse.hasOwnProperty('result'))
+   if(jsonparse.hasOwnProperty('result'))
     {
     console.log(jsonparse.result[0].description);
     return res.json( {
-    // speech:incstatus,
-    // displayText:incstatus,
-    // source:'Service Now',
     followupEvent :{
       "name":"mainmenuevent",
       "data":{
@@ -172,7 +163,7 @@ if(req.body.result.action=="getincident")
   }
   else
   {
-    return json({
+    return res.json({
       speech:"This Incident number record does not exist.Please enter correct incident number",
       displayText:"This Incident number record does not exist.Please enter correct incident number",
       source:"Service Now"
