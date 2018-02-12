@@ -158,7 +158,7 @@ if(req.body.result.action=="getincident")
     console.log(jsonparse.result[0].description);
     return res.json( {
     followupEvent :{
-      "name":"mainmenuevent",
+      "name":"mainmenueventgetinc",
       "data":{
         "incstatus":jsonparse.result[0].description,
         "incnumber":jsonparse.result[0].number,
