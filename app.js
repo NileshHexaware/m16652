@@ -136,9 +136,15 @@ return res.json(fbresponse);
       var success=resu["result"]["number"];
       var resagent="Your incident has been created with incident number:"+success +".\nNote it down for further enquiry.";
     return res.json({
-      speech:resagent,
-      displayText: resagent,
-      source:'Service Now'
+      // speech:resagent,
+      // displayText: resagent,
+      // source:'Service Now'
+      followupEvent :{
+        "name":"mainmenuevent",
+        "data":{
+          "incnumber":success
+        }
+      }
     });
   });
 }
