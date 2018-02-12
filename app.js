@@ -164,9 +164,16 @@ if(req.body.result.action=="getincident")
   else
   {
     return res.json({
-      speech:"This Incident number record does not exist.Please enter correct incident number",
-      displayText:"This Incident number record does not exist.Please enter correct incident number",
-      source:"Service Now"
+      // speech:"This Incident number record does not exist.",
+      // displayText:"This Incident number record does not exist.",
+      // source:"Service Now"
+      followupEvent :{
+        "name":"incorrectInc",
+        "data":{
+          "incstatus":"This Incident number record does not exist",
+        }
+      }
+
     });
   }
   });
