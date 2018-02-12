@@ -151,8 +151,8 @@ return res.json(fbresponse);
       
 if(req.body.result.action=="getincident")
 {
-  if(/[^a-zA-Z0-9]/.test( req.body.result.parameters.incidentno ))
-  {
+  // if(/[^a-zA-Z0-9]/.test( req.body.result.parameters.incidentno ))
+  // {
   incident.statusIncident(req.body.result.parameters.incidentno,function(err,resul){
    var jsonparse= JSON.parse(resul);
    if(jsonparse.hasOwnProperty('result'))
@@ -186,22 +186,22 @@ if(req.body.result.action=="getincident")
     
   }
   });
-}
-else
-{
-  return res.json({
-    // speech:"This Incident number record does not exist.",
-    // displayText:"This Incident number record does not exist.",
-    // source:"Service Now"
-    followupEvent :{
-      "name":"IncFailevent",
-      "data":{
+// }
+// else
+// {
+//   return res.json({
+//     // speech:"This Incident number record does not exist.",
+//     // displayText:"This Incident number record does not exist.",
+//     // source:"Service Now"
+//     followupEvent :{
+//       "name":"IncFailevent",
+//       "data":{
        
-      }
-    }
+//       }
+//     }
 
-  });
-}
+//   });
+// }
 }
 
 });
