@@ -181,7 +181,7 @@ if(req.body.result.action=="getincident")
     "speech": "",
     "messages": [
       {
-        "type": 0,
+        "type":"simple_response",
         "platform": "google",
         "speech": "Select one"
       },
