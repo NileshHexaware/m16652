@@ -17,7 +17,7 @@ var args={headers:
           json: true };
 
 
-var getIncident=  client.get("https://dev18442.service-now.com/api/now/v1/table/incident?number=INC0000001",args
+var getIncident=  client.get("https://dev18442.service-now.com/api/now/v1/table/incident?number=INC0012038",args
 ,function (data, response)
  {
     // parsed response body as js object 
