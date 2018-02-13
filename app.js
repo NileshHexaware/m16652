@@ -178,12 +178,12 @@ if(req.body.result.action=="getincident")
     if (req.body.result.parameters.Category=== 'Network')
     {
     var fbresponse={
-    "speech": "",
+    "speech": "google assistant",
     "messages": [
       {
         "type":"simple_response",
         "platform": "google",
-        "speech": "Select one"
+        "textToSpeech": "Select one"
       },
       {
         "type": "suggestion_chips",
@@ -205,7 +205,7 @@ if(req.body.result.action=="getincident")
       },
       {
         "type": 0,
-        "speech": ""
+        "speech": "this is service now bot"
       }
     ]
 
