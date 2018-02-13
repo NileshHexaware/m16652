@@ -181,6 +181,11 @@ if(req.body.result.action=="getincident")
     "speech": "",
     "messages": [
       {
+        "type": 0,
+        "platform": "google",
+        "speech": "Select one"
+      },
+      {
         "type": "suggestion_chips",
         "platform": "google",
         "suggestions": [
