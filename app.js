@@ -216,34 +216,36 @@ if(req.body.result.action=="getincident")
   if (req.body.result.parameters.Category=== 'Hardware')
   {
   var fbresponse={
-  "speech": "",
-  "messages": [
-    {
-      "type": 1,
-      "platform": "facebook",
-      "title": "Servicenow",
-      "subtitle": "Servicenow",
-      "imageUrl": "https://botw-pd.s3.amazonaws.com/styles/logo-thumbnail/s3/122013/untitled-1_86.png?itok=jqHZFAoG",
-      "buttons": [
-        {
-          "text": "Monitor",
-          "postback": "Monitor"
-        },
-        {
-          "text": "Keyboard",
-          "postback": "Keyboard"
-        },
-        {
-          "text": "Mouse",
-          "postback": "Mouse"
-        }
-      ]
-    },
-    {
-      "type": 0,
-      "speech": ""
-    }
-  ]
+    "speech": "google assistant",
+    "messages": [
+      {
+        "type":"simple_response",
+        "platform": "google",
+        "textToSpeech": "Select one"
+      },
+      {
+        "type": "suggestion_chips",
+        "platform": "google",
+        "suggestions": [
+          {
+            "title": "Monitor"
+            //"postback": "DHCP"
+          },
+          {
+            "title": "Keyboard"
+            //"postback": "DNS"
+          },
+          {
+            "title": "Mouse"
+           // "postback": "IP"
+          }
+        ]
+      },
+      {
+        "type": 0,
+        "speech": "this is service now bot"
+      }
+    ]
 };
 return res.json(fbresponse);
   }
@@ -251,34 +253,36 @@ return res.json(fbresponse);
   if (req.body.result.parameters.Category=== 'Software')
     {
     var fbresponse={
-    "speech": "",
-    "messages": [
-      {
-        "type": 1,
-        "platform": "facebook",
-        "title": "Servicenow",
-        "subtitle": "Servicenow",
-        "imageUrl": "https://botw-pd.s3.amazonaws.com/styles/logo-thumbnail/s3/122013/untitled-1_86.png?itok=jqHZFAoG",
-        "buttons": [
-          {
-            "text": "Email",
-            "postback": "Email"
-          },
-          {
-            "text": "OS",
-            "postback": "OS"
-          },
-          {
-            "text": "Mac",
-            "postback": "Mac"
-          }
-        ]
-      },
-      {
-        "type": 0,
-        "speech": ""
-      }
-    ]
+      "speech": "google assistant",
+      "messages": [
+        {
+          "type":"simple_response",
+          "platform": "google",
+          "textToSpeech": "Select one"
+        },
+        {
+          "type": "suggestion_chips",
+          "platform": "google",
+          "suggestions": [
+            {
+              "title": "Email"
+              //"postback": "DHCP"
+            },
+            {
+              "title": "OS"
+              //"postback": "DNS"
+            },
+            {
+              "title": "Mac"
+             // "postback": "IP"
+            }
+          ]
+        },
+        {
+          "type": 0,
+          "speech": "this is service now bot"
+        }
+      ]
   };
   return res.json(fbresponse);
 }
