@@ -181,23 +181,20 @@ if(req.body.result.action=="getincident")
     "speech": "",
     "messages": [
       {
-        "type": 1,
-        "platform": "facebook",
-        "title": "Servicenow",
-        "subtitle": "Servicenow",
-        "imageUrl": "https://botw-pd.s3.amazonaws.com/styles/logo-thumbnail/s3/122013/untitled-1_86.png?itok=jqHZFAoG",
-        "buttons": [
+        "type": "suggestion_chips",
+        "platform": "google",
+        "suggestions": [
           {
-            "text": "DHCP",
-            "postback": "DHCP"
+            "title": "DHCP"
+            //"postback": "DHCP"
           },
           {
-            "text": "DNS",
-            "postback": "DNS"
+            "title": "DNS"
+            //"postback": "DNS"
           },
           {
-            "text": "IP",
-            "postback": "IP"
+            "title": "IP"
+           // "postback": "IP"
           }
         ]
       },
