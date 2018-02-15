@@ -1,7 +1,8 @@
 const ActionsSdkApp = require('actions-on-google').DialogflowApp;
-const app = new ActionsSdkApp({ request: req, response: res }); 
+
 
 var funResponse=function (req,res){
+const app = new ActionsSdkApp({ request: req, response: res }); 
 var dispText = app.buildRichResponse()
 .addSimpleResponse({speech: 'Please select hjdhdh option from ',
 displayText: 'Please select optiohjshgghsn from '});
@@ -10,6 +11,7 @@ app.ask(dispText);
 
 var funresponseBasiccard=function(req,res)
 {
+  const app = new ActionsSdkApp({ request: req, response: res }); 
   var dispBasicCard=app.buildRichResponse()
   .addSimpleResponse('Math and prime numbers it is!')
   .addBasicCard(app.buildBasicCard('42 is an even composite number. It' +
