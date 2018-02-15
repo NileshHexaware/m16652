@@ -1,6 +1,6 @@
-
+const ActionsSdkApp = require('actions-on-google').DialogflowApp;
 var funResponse=function (req,res){
-    const ActionsSdkApp = require('actions-on-google').DialogflowApp;
+    
     const app = new ActionsSdkApp({ request: request, response: response });  
     
  var dispText = app.buildRichResponse()
