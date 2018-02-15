@@ -10,8 +10,8 @@ var incident=require('./app3');
 var googleAssist=require('./googleAssistConfig');
 
 app.post('/',function(req,res){
-  googleAssist.simpleResponse(req,res);
-  googleAssist.simpleResponseBasicCard(req,res);
+  // googleAssist.simpleResponse(req,res);
+  // googleAssist.simpleResponseBasicCard(req,res);
   googleAssist.simpleResponseList(req,res);
 });
 
