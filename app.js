@@ -12,7 +12,7 @@ var googleAssist=require('./googleAssistConfig');
 app.post('/',function(req,res){
   // googleAssist.simpleResponse(req,res);
   // googleAssist.simpleResponseBasicCard(req,res);
-  googleAssist.simpleResponseList(req,res);
+  googleAssist.simpResponseCarousel(req,res);
 });
 
 app.listen(portC, function(){
