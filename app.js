@@ -7,6 +7,7 @@ var portC = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 var incident=require('./app3');
+var googleAssist=require('./googleAssistConfig');
 
 
    app.post('/',function(req,res){
@@ -291,11 +292,14 @@ return res.json(fbresponse);
 
   if(req.body.result.action=="CreateIncident.CreateIncident-custom"){
 
-    var cat=req.body.result.parameters.Category;
+    /*var cat=req.body.result.parameters.Category;
      incident.logIncident(req.body.result.parameters.desc,req.body.result.parameters.severity,cat,req.body.result.parameters.subcategory,function(err,resu){
       var success=resu["result"]["number"];
-      var resagent="Your incident has been created with incident number:"+success +".\nNote it down for further enquiry.";
-    return res.json({
+      var resagent="Your incident has been created with incident number:"+success +".\nNote it down for further enquiry.";*/
+    
+     console.log(googleAssist.simpleresponse());
+    
+      return res.json({
       // speech:resagent,
       // displayText: resagent,
       // source:'Service Now'
@@ -306,7 +310,7 @@ return res.json(fbresponse);
         }
       }
     });
-  });
+  //});
 }
       
 if(req.body.result.action=="getincident")
