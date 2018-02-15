@@ -13,8 +13,3 @@ const app = new ActionsSdkApp({ request: request, response: response });
 }
    }
    
-
-
-
-
-
