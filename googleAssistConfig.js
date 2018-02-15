@@ -1,7 +1,7 @@
 const ActionsSdkApp = require('actions-on-google').DialogflowApp;
 var funResponse=function (req,res){
     
-    const app = new ActionsSdkApp({ request: request, response: response });  
+    const app = new ActionsSdkApp({ request: req, response: res });  
     
  var dispText = app.buildRichResponse()
  .addSimpleResponse({speech: 'Please select option from ',
