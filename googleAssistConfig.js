@@ -78,7 +78,7 @@ var funresponseCarousel=function(req,res){
       .setTitle('Math & prime numbers')
       .setDescription('42 is an abundant number because the sum of its ' +
         'proper divisors 54 is greater…')
-      .setImage('http://example.com/math_and_prime.jpg', 'Math & prime numbers'))
+      .setImage('https://botw-pd.s3.amazonaws.com/styles/logo-thumbnail/s3/122013/untitled-1_86.png?itok=jqHZFAoG', 'Math & prime numbers'))
     // Add the second item to the carousel
     .addItems(app.buildOptionItem('EGYPT',
       ['religion', 'egpyt', 'ancient egyptian'])
