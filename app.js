@@ -316,13 +316,16 @@ if(req.body.result.action=="getincident")
           
     if(req.body.result.action=="getincident")
     {
-      incident.statusIncident(req.body.result.parameters.incidentno,function(err,resul){
-       var jsonparse= JSON.parse(resul);
-       if(jsonparse.hasOwnProperty('result'))
-        {
-        console.log(jsonparse.result[0].description);
-        return res.json( {
-        followupEvent :{
+      var incidentcheck=req.body.result.parameters.incidentno;
+      if(isAlphanumeric(incidentcheck))
+       {
+        incident.statusIncident(req.body.result.parameters.incidentno,function(err,resul){
+        var jsonparse= JSON.parse(resul);
+        if(jsonparse.hasOwnProperty('result'))
+         {
+          console.log(jsonparse.result[0].description);
+          return res.json( {
+          followupEvent :{
           "name":"mainmenueventgetinc",
           "data":{
             "incstatus":jsonparse.result[0].description,
@@ -346,8 +349,8 @@ if(req.body.result.action=="getincident")
         
       }
       });
-    
     }
+   }
     
   }
 
@@ -489,8 +492,9 @@ return res.json(fbresponse);
       
 if(req.body.result.action=="getincident")
 {
-  // if(/[^a-zA-Z0-9]/.test( req.body.result.parameters.incidentno ))
-  // {
+  var incidentcheck=req.body.result.parameters.incidentno;
+  if(isAlphanumeric(incidentcheck))
+  {
   incident.statusIncident(req.body.result.parameters.incidentno,function(err,resul){
    var jsonparse= JSON.parse(resul);
    if(jsonparse.hasOwnProperty('result'))
@@ -524,7 +528,7 @@ if(req.body.result.action=="getincident")
     
   }
   });
-
+ }
 }
    }
 
