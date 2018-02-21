@@ -492,6 +492,9 @@ return res.json(fbresponse);
       
 if(req.body.result.action=="getincident")
 {
+  var incidentcheck=req.body.result.parameters.incidentno;
+  if(isAlphanumeric(incidentcheck))
+   {
   incident.statusIncident(req.body.result.parameters.incidentno,function(err,resul){
    var jsonparse= JSON.parse(resul);
    if(jsonparse.hasOwnProperty('result'))
@@ -525,7 +528,7 @@ if(req.body.result.action=="getincident")
     
   }
   });
-
+ }
 }
    }
 
