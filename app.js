@@ -122,8 +122,6 @@ return res.json(fbresponse);
 //Rest Api Call started
 
   if(req.body.result.action=="CreateIncident.CreateIncident-custom"){
-
-    var cat=req.body.result.contexts[0].parameters.Category;
      incident.logIncident(req.body.result.parameters.desc,req.body.result.parameters.severity,cat,req.body.result.parameters.subcategory,function(err,resu){
       var success=resu["result"]["number"];
       var resagent="Your incident has been created with incident number:"+success +".\nNote it down for further enquiry.";
@@ -140,6 +138,10 @@ return res.json(fbresponse);
       
 if(req.body.result.action=="getincident")
 {
+    var cat=req.body.result.contexts[0].parameters.Category;
+    if(cat.substring(0,2)=="INC")
+    {
+  var incidentcheck=req.body.result.parameters.incidentno;
   incident.statusIncident(req.body.result.parameters.incidentno,function(err,resul){
    var jsonparse= JSON.parse(resul);
    if(jsonparse.hasOwnProperty('result'))
@@ -169,6 +171,19 @@ if(req.body.result.action=="getincident")
     
   }
   });
+ }
+ else
+ {
+  return res.json({
+    followupEvent :{
+      "name":"IncFailevent",
+      "data":{
+       
+      }
+    }
+
+  });
+ }
 
 }
    }
