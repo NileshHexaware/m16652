@@ -7,7 +7,7 @@ var app = express();
 var portC = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
-var incident=require('./app3');
+var incident=require('./DAL');
 
 
    app.post('/',function(req,res){
