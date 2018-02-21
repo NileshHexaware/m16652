@@ -35,8 +35,8 @@ var incident=require('./app3');
             "postback": "DNS"
           },
           {
-            "text": "IP",
-            "postback": "IP"
+            "text": "IP Address",
+            "postback": "IP Address"
           }
         ]
       },
@@ -210,8 +210,8 @@ if(req.body.result.action=="getincident")
                 "postback": "DNS"
               },
               {
-                "text": "IP",
-                "postback": "IP"
+                "text": "IP Address",
+                "postback": "IP Address"
               }
             ]
           },
@@ -379,7 +379,7 @@ if(req.body.result.action=="getincident")
             //"postback": "DNS"
           },
           {
-            "title": "IP"
+            "title": "IP Address"
            // "postback": "IP"
           }
         ]
@@ -477,9 +477,6 @@ return res.json(fbresponse);
       var success=resu["result"]["number"];
       var resagent="Your incident has been created with incident number:"+success +".\nNote it down for further enquiry.";
     return res.json({
-      // speech:resagent,
-      // displayText: resagent,
-      // source:'Service Now'
       followupEvent :{
         "name":"mainmenuevent",
         "data":{
@@ -514,9 +511,6 @@ if(req.body.result.action=="getincident")
   else
   {
     return res.json({
-      // speech:"This Incident number record does not exist.",
-      // displayText:"This Incident number record does not exist.",
-      // source:"Service Now"
       followupEvent :{
         "name":"IncFailevent",
         "data":{
