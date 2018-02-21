@@ -2,6 +2,7 @@
 var request = require('http');
 var express=require('express');
 var bodyParser = require('body-parser');
+var isAlphanumeric = require('is-alphanumeric');
 var app = express();
 var portC = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({extended:true}));
@@ -138,10 +139,9 @@ return res.json(fbresponse);
       
 if(req.body.result.action=="getincident")
 {
-    var cat=req.body.result.contexts[0].parameters.Category;
-    if(cat.substring(0,2)=="INC")
-    {
   var incidentcheck=req.body.result.parameters.incidentno;
+   if(isAlphanumeric(incidentcheck))
+   {
   incident.statusIncident(req.body.result.parameters.incidentno,function(err,resul){
    var jsonparse= JSON.parse(resul);
    if(jsonparse.hasOwnProperty('result'))
