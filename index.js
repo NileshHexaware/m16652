@@ -14,8 +14,11 @@ var incident=require('./DAL');
     
     //if(req.body.originalRequest.source=='facebook'){
 console.log("Nilesh");
+
 var fbresponse={
-  "speech": "service now",
+  "recipient":{
+    "id":"RECIPIENT_ID"
+  },
   "messages": [
     {
       "attachment": {
@@ -27,7 +30,7 @@ var fbresponse={
             {
               "title": "Classic T-Shirt Collection",
               "subtitle": "See all our colors",
-              "image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png",          
+              "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Blue_Tshirt.jpg/220px-Blue_Tshirt.jpg",          
               "buttons": [
                 {
                   "title": "View",
