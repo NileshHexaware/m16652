@@ -14,38 +14,39 @@ var incident=require('./DAL');
     
     //if(req.body.originalRequest.source=='facebook'){
 console.log("Nilesh");
-      var fbresponse={
-    "speech": "",
-    
-      "facebook": {
-        "attachment": {
-          "type": "template",
-          "payload": {
-            "template_type": "list",
-            "elements": [
-            {
-                "title": "City Bar",
-                "image_url": "https://maps.google.com/?cid=2874291166720850239",
-                "subtitle": "Test",
-                "default_action": {
-                  "type": "web_url",
-                  "url": "https://maps.google.com/?cid=2874291166720850239"
-                },
-                "buttons": [
-                  {
-                    "title": "View",
-                    "type": "web_url",
-                    "url": "https://maps.google.com/?cid=2874291166720850239"
-                  }
-                ]
-              }
-            ]
-          }
+var fbresponse={
+  "speech": "",
+  "messages": [
+    {
+      "type": 1,
+      "platform": "facebook",
+      "title": "Servicenow",
+      "subtitle": "Servicenow",
+      "imageUrl": "https://botw-pd.s3.amazonaws.com/styles/logo-thumbnail/s3/122013/untitled-1_86.png?itok=jqHZFAoG",
+      "buttons": [
+        {
+          "text": "DHCP",
+          "postback": "DHCP"
+        },
+        {
+          "text": "DNS",
+          "postback": "DNS"
+        },
+        {
+          "text": "IP Address",
+          "postback": "IP Address"
         }
-      }
-   
+      ]
+    },
+    {
+      "type": 0,
+      "speech": ""
+    }
+  ]
 
-  };
+};
+
+  
   return res.json(fbresponse);
   //  }
   });
