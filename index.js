@@ -15,7 +15,7 @@ var incident=require('./DAL');
     //if(req.body.originalRequest.source=='facebook'){
 console.log("Nilesh");
 var fbresponse={
-  "speech": "",
+  "speech": "service now",
   "messages": [
     {
       "attachment": {
