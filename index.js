@@ -12,7 +12,7 @@ var incident=require('./DAL');
 
    app.post('/',function(req,res){
     
-    if(req.body.originalRequest.source=='facebook'){
+    //if(req.body.originalRequest.source=='facebook'){
 
       var fbresponse={
     "speech": "",
@@ -47,7 +47,7 @@ var incident=require('./DAL');
 
   };
   return res.json(fbresponse);
-    }
+  //  }
   });
     /*
     if (req.body.result.parameters.Category=== 'Network')
