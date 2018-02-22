@@ -14,80 +14,71 @@ var incident=require('./DAL');
     
     //if(req.body.originalRequest.source=='facebook'){
 console.log("Nilesh");
-
 var fbresponse={
-  "messages": [
-    {
-      "attachment": {
-        "type": "template",
-        "payload": {
-          "template_type": "list",
-          "top_element_style": "large",
-          "elements": [
-            {
-              "title": "Classic T-Shirt Collection",
-              "subtitle": "See all our colors",
-              "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Blue_Tshirt.jpg/220px-Blue_Tshirt.jpg",          
-              "buttons": [
+  
+    "facebook": {
+    
+      "attachment":{
+        "type":"template",
+        "payload":{
+          "template_type":"generic",
+          "elements":[
+             {
+              "title":"Welcome!",
+              "image_url":"https://auto.ndtvimg.com/bike-images/colors/suzuki/intruder/suzuki-intruder-glass-sparkle-black.png?v=14",
+              "subtitle":"We have the right hat for everyone.",
+              "buttons":[
                 {
-                  "title": "View",
-                  "type": "web_url",
-                  "url": "https://peterssendreceiveapp.ngrok.io/collection",
-                  "messenger_extensions": true,
-                  "webview_height_ratio": "tall",
-                  "fallback_url": "https://peterssendreceiveapp.ngrok.io/"            
-                }
-              ]
+                  "type":"web_url",
+                  "url":"https://petersfancybrownhats.com",
+                  "title":"View Website"
+                },{
+                  "type":"postback",
+                  "title":"Start Chatting",
+                  "payload":"DEVELOPER_DEFINED_PAYLOAD"
+                }              
+              ]      
             },
             {
-              "title": "Classic White T-Shirt",
-              "subtitle": "See all our colors",
-              "default_action": {
-                "type": "web_url",
-                "url": "https://peterssendreceiveapp.ngrok.io/view?item=100",
-                "messenger_extensions": false,
-                "webview_height_ratio": "tall"
-              }
-            },
-            {
-              "title": "Classic Blue T-Shirt",
-              "image_url": "https://peterssendreceiveapp.ngrok.io/img/blue-t-shirt.png",
-              "subtitle": "100% Cotton, 200% Comfortable",
-              "default_action": {
-                "type": "web_url",
-                "url": "https://peterssendreceiveapp.ngrok.io/view?item=101",
-                "messenger_extensions": true,
-                "webview_height_ratio": "tall",
-                "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+                "title":"Welcome!",
+                "image_url":"https://petersfancybrownhats.com/company_image.png",
+                "subtitle":"We have the right hat for everyone.",
+                "buttons":[
+                  {
+                    "type":"web_url",
+                    "url":"https://petersfancybrownhats.com",
+                    "title":"View Website"
+                  },{
+                    "type":"postback",
+                    "title":"Start Chatting",
+                    "payload":"DEVELOPER_DEFINED_PAYLOAD"
+                  }              
+                ]      
               },
-              "buttons": [
-                {
-                  "title": "Shop Now",
-                  "type": "web_url",
-                  "url": "https://peterssendreceiveapp.ngrok.io/shop?item=101",
-                  "messenger_extensions": true,
-                  "webview_height_ratio": "tall",
-                  "fallback_url": "https://peterssendreceiveapp.ngrok.io/"            
-                }
-              ]        
-            }
-          ],
-           "buttons": [
-            {
-              "title": "View More",
-              "type": "postback",
-              "payload": "payload"            
-            }
-          ]  
+              {
+                "title":"Welcome!",
+                "image_url":"https://petersfancybrownhats.com/company_image.png",
+                "subtitle":"We have the right hat for everyone.",
+                "buttons":[
+                  {
+                    "type":"web_url",
+                    "url":"https://petersfancybrownhats.com",
+                    "title":"View Website"
+                  },{
+                    "type":"postback",
+                    "title":"Start Chatting",
+                    "payload":"DEVELOPER_DEFINED_PAYLOAD"
+                  }              
+                ]      
+              }
+          ]
         }
       }
+    
     }
   
-  ]     
 
 };
-
-  
   return res.json(fbresponse);
   //  }
   });
