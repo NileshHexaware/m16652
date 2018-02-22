@@ -16,16 +16,13 @@ var incident=require('./DAL');
 console.log("Nilesh");
 
 var fbresponse={
-  "recipient":{
-    "id":"RECIPIENT_ID"
-  },
   "messages": [
     {
       "attachment": {
         "type": "template",
         "payload": {
           "template_type": "list",
-          "top_element_style": "compact",
+          "top_element_style": "large",
           "elements": [
             {
               "title": "Classic T-Shirt Collection",
