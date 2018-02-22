@@ -13,7 +13,7 @@ var incident=require('./DAL');
    app.post('/',function(req,res){
     
     //if(req.body.originalRequest.source=='facebook'){
-
+console.log("Nilesh");
       var fbresponse={
     "speech": "",
     
