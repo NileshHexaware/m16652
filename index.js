@@ -13,7 +13,43 @@ var incident=require('./DAL');
    app.post('/',function(req,res){
     
     if(req.body.originalRequest.source=='facebook'){
+
+      var fbresponse={
+    "speech": "",
     
+      "facebook": {
+        "attachment": {
+          "type": "template",
+          "payload": {
+            "template_type": "list",
+            "elements": [
+            {
+                "title": "City Bar",
+                "image_url": "https://maps.google.com/?cid=2874291166720850239",
+                "subtitle": "Test",
+                "default_action": {
+                  "type": "web_url",
+                  "url": "https://maps.google.com/?cid=2874291166720850239"
+                },
+                "buttons": [
+                  {
+                    "title": "View",
+                    "type": "web_url",
+                    "url": "https://maps.google.com/?cid=2874291166720850239"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+   
+
+  };
+  return res.json(fbresponse);
+    }
+  });
+    /*
     if (req.body.result.parameters.Category=== 'Network')
     {
     var fbresponse={
@@ -527,7 +563,7 @@ if(req.body.result.action=="getincident")
    }
 
 });
-
+*/
 app.listen(portC, function(){
     console.log('AGENT is running my app on  PORT: ' + portC);
 });
