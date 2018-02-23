@@ -1,33 +1,50 @@
-var Client = require('node-rest-client').Client;
- 
-var client = new Client();
- 
-// direct way
+var request = require('http');
+var express=require('express');
+var bodyParser = require('body-parser');
+var isAlphanumeric = require('is-alphanumeric');
+var app = express();
+var portC = process.env.PORT || 3000;
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
+var incident=require('./DAL');
 
-var args={headers:
-           { 'postman-token': 'd6253bf3-ff31-fb21-7741-3dd02c84e8bb',
-             'cache-control': 'no-cache',
-             authorization: 'Basic MzMyMzg6YWJjMTIz',
-             'content-type': 'application/json' },
-          body:
-           { short_description: "",
-             caller_id: 'Pourab Karchaudhuri',
-             urgency: "" ,
-             comments: 'Chatbot Testing' },
-          json: true };
+app.post('/',function(req,res){
+  var fbresponse={
+    "speech": "",
+    "messages": [
+      {
+        "type": 1,
+        "platform": "facebook",
+        "title": "Servicenow",
+        "subtitle": "Servicenow",
+        "imageUrl": "https://botw-pd.s3.amazonaws.com/styles/logo-thumbnail/s3/122013/untitled-1_86.png?itok=jqHZFAoG",
+        "buttons": [
+          {
+            "text": "DHCP",
+            "postback": "DHCP"
+          },
+          {
+            "text": "DNS",
+            "postback": "DNS"
+          },
+          {
+            "text": "IP Address",
+            "postback": "IP Address"
+          }
+        ]
+      },
+      {
+        "type": 0,
+        "speech": ""
+      }
+    ]
 
-
-var getIncident=  client.get("https://dev18442.service-now.com/api/now/v1/table/incident?number=INC0012038",args
-,function (data, response)
- {
-    // parsed response body as js object 
-    
-  var obj=JSON.stringify(data);
-   console.log(obj);
-    //console.log(data);
-    // raw response 
-   // console.log(response);
+  };
+  return res.json(fbresponse);
 });
 
+app.listen(portC,function(req,res){
+  console.log('AGENT is running my app on  PORT: ' + portC);
+});
 
  
