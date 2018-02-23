@@ -12,7 +12,6 @@ app.post('/',function(req,res){
 
   console.log("app started nilesh");
   var fbresponse={
-    "speech": "hiiiii",
     "messages": [
       {
         "type": 4,
@@ -73,10 +72,6 @@ app.post('/',function(req,res){
             }
           }
         }
-      },
-      {
-        "type": 0,
-        "speech": "Hi!"
       }
     ]
      
