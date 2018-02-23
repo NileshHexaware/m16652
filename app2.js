@@ -9,6 +9,8 @@ app.use(bodyParser.json());
 var incident=require('./DAL');
 
 app.post('/',function(req,res){
+
+  console.log("app started");
   var fbresponse={
     "speech": "Incident No",
     "messages": [
