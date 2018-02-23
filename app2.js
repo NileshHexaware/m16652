@@ -12,7 +12,7 @@ app.post('/',function(req,res){
 
   console.log("app started");
   var fbresponse={
-    
+    "speech": "",
     "messages": [
       {
         "facebook": {
@@ -98,6 +98,7 @@ app.post('/',function(req,res){
     // ]
 
   };
+  console.log(fbresponse);
   return res.json(fbresponse);
 });
 
