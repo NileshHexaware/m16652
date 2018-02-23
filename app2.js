@@ -15,11 +15,8 @@ app.post('/',function(req,res){
     "speech": "hiiiii",
     "messages": [
       {
-        "facebook": {
-          "attachment": {
-            "type": "template",
-            "payload": {
-              "template_type": "list",
+            "type": 1,
+            "template_type": "list",
               "top_element_style": "compact",
               "elements": [
                 {
@@ -59,9 +56,8 @@ app.post('/',function(req,res){
                   ]
                 }
               ]
-            }
-          }
-        }
+            
+        
       }
         ]
     
