@@ -15,55 +15,71 @@ app.post('/',function(req,res){
     "speech": "hiiiii",
     "messages": [
       {
-              "type": 1,
-              "template_type": "list",
-              "top_element_style": "compact",
-              "elements": [
-                {
-                  "title": "Bus Schedule",
-                  "image_url": "https://cdn2.iconfinder.com/data/icons/travel-set-2/512/18-512.png",
-                  "subtitle": "Category for bus's schedule related queries",
-                  "buttons": [
-                    {
-                      "title": "Select",
-                      "type": "postback",
-                      "payload": "schedule"
-                    }
-                  ]
-                },
-                {
-                  "title": "Quality of Service",
-                  "image_url": "https://www.hbs.edu/mba/PublishingImages/icon-handshake.png",
-                  "subtitle": "Category for our service quality related queries",
-                  "buttons": [
-                    {
-                      "type": "postback",
-                      "title": "Select",
-                      "payload": "quality of service"
-                    }
-                  ]
-                },
-                {
-                  "title": "Payment related",
-                  "image_url": "https://www.rupay.co.in/sites/all/themes/rupay/images/cashback.png",
-                  "subtitle": "Category for all payment related queries",
-                  "buttons": [
-                    {
-                      "type": "postback",
-                      "title": "Select",
-                      "payload": "payment"
-                    }
-                  ]
-                }
-              ]
-            
-        
+        "type": 4,
+        "platform": "facebook",
+        "payload": {
+          "facebook": {
+            "attachment": {
+              "type": "template",
+              "payload": {
+                "template_type": "list",
+                "top_element_style": "compact",
+                "elements": [
+                  {
+                    "title": "Classic T-Shirt Collection",
+                    "subtitle": "See all our colors",
+                    "image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png",
+                    "buttons": [
+                      {
+                        "title": "View",
+                        "type": "web_url",
+                        "url": "https://peterssendreceiveapp.ngrok.io/collection"
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Classic White T-Shirt",
+                    "subtitle": "See all our colors",
+                    "image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png",
+                    "buttons": [
+                      {
+                        "title": "View",
+                        "type": "web_url",
+                        "url": "https://peterssendreceiveapp.ngrok.io/collection"
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Classic Blue T-Shirt",
+                    "image_url": "https://peterssendreceiveapp.ngrok.io/img/blue-t-shirt.png",
+                    "subtitle": "100% Cotton, 200% Comfortable",
+                    "buttons": [
+                      {
+                        "title": "Shop Now",
+                        "type": "web_url",
+                        "url": "https://peterssendreceiveapp.ngrok.io/shop?item=101"
+                      }
+                    ]
+                  }
+                ],
+                "buttons": [
+                  {
+                    "title": "View More",
+                    "type": "postback",
+                    "payload": "payload"
+                  }
+                ]
+              }
+            }
+          }
+        }
       },
       {
         "type": 0,
-        "speech": ""
+        "speech": "Hi!"
       }
-        ]
+    ]
+     
     
 
 
