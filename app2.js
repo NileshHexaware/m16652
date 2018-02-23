@@ -10,7 +10,7 @@ var incident=require('./DAL');
 
 app.post('/',function(req,res){
 
-  console.log("app started");
+  console.log("app started nilesh");
   var fbresponse={
     "speech": "hiiiii",
     "messages": [
