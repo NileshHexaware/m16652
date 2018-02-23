@@ -12,77 +12,8 @@ var incident=require('./DAL');
 
    app.post('/',function(req,res){
     
-    //if(req.body.originalRequest.source=='facebook'){
-console.log("Nilesh");
-var fbresponse={
-  
-    "facebook": {
-    
-      "attachment":{
-        "type":"template",
-        "payload":{
-          "template_type":"generic",
-          "elements":[
-             {
-              "title":"Welcome!",
-              "image_url":"https://auto.ndtvimg.com/bike-images/colors/suzuki/intruder/suzuki-intruder-glass-sparkle-black.png?v=14",
-              "subtitle":"We have the right hat for everyone.",
-              "buttons":[
-                {
-                  "type":"web_url",
-                  "url":"https://petersfancybrownhats.com",
-                  "title":"View Website"
-                },{
-                  "type":"postback",
-                  "title":"Start Chatting",
-                  "payload":"DEVELOPER_DEFINED_PAYLOAD"
-                }              
-              ]      
-            },
-            {
-                "title":"Welcome!",
-                "image_url":"https://petersfancybrownhats.com/company_image.png",
-                "subtitle":"We have the right hat for everyone.",
-                "buttons":[
-                  {
-                    "type":"web_url",
-                    "url":"https://petersfancybrownhats.com",
-                    "title":"View Website"
-                  },{
-                    "type":"postback",
-                    "title":"Start Chatting",
-                    "payload":"DEVELOPER_DEFINED_PAYLOAD"
-                  }              
-                ]      
-              },
-              {
-                "title":"Welcome!",
-                "image_url":"https://petersfancybrownhats.com/company_image.png",
-                "subtitle":"We have the right hat for everyone.",
-                "buttons":[
-                  {
-                    "type":"web_url",
-                    "url":"https://petersfancybrownhats.com",
-                    "title":"View Website"
-                  },{
-                    "type":"postback",
-                    "title":"Start Chatting",
-                    "payload":"DEVELOPER_DEFINED_PAYLOAD"
-                  }              
-                ]      
-              }
-          ]
-        }
-      }
-    
-    }
-  
-
-};
-  return res.json(fbresponse);
-  //  }
-  });
-    /*
+    if(req.body.originalRequest.source=='facebook'){
+   
     if (req.body.result.parameters.Category=== 'Network')
     {
     var fbresponse={
@@ -427,6 +358,7 @@ if(req.body.result.action=="getincident")
    {
     if (req.body.result.parameters.Category=== 'Network')
     {
+      //googleAssist.simpResponseCarousel(req,res);   calling google assistant dynamic templates
     var fbresponse={
     "speech": "google assistant",
     "messages": [
@@ -596,7 +528,7 @@ if(req.body.result.action=="getincident")
    }
 
 });
-*/
+
 app.listen(portC, function(){
     console.log('AGENT is running my app on  PORT: ' + portC);
 });
