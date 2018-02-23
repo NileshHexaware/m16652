@@ -12,51 +12,57 @@ app.post('/',function(req,res){
 
   console.log("app started");
   var fbresponse={
-    "speech": "Incident No",
+    
     "messages": [
-          {
-            "type": 0,
-             "platform": "facebook",
-             "speech": "Please find status of  below."
-          },
-          {
-            "type": 4,
-            "platform": "facebook",
-             "payload": {
-             "facebook": {
-             "attachment": {
-              "type": "template",
-              "payload": {
-               "template_type": "list",
-               "top_element_style": "compact",
-                "elements": [
-                      {
-                         "title": "Status",
-                          "subtitle": "CLOSED"
-                      },
-                     {
-                        "title": "Priority",
-                         "subtitle": "CLOSED"
-                      },
-                      {
-                        "title": "Created On",
-                        "subtitle": "creatd";
-                      }
-                            ]
-                          }
-                            }
-                         }
-                            }
-              },
-              {
-                  "type": 2,
-                  "platform": "facebook",
-                   "title": "Would you like to do more ?",
-                   "replies": [
-                    "Yes",
-                     "No"
-                     ]
-              }
+      {
+        "facebook": {
+          "attachment": {
+            "type": "template",
+            "payload": {
+              "template_type": "list",
+              "top_element_style": "compact",
+              "elements": [
+                {
+                  "title": "Bus Schedule",
+                  "image_url": "https://cdn2.iconfinder.com/data/icons/travel-set-2/512/18-512.png",
+                  "subtitle": "Category for bus's schedule related queries",
+                  "buttons": [
+                    {
+                      "title": "Select",
+                      "type": "postback",
+                      "payload": "schedule"
+                    }
+                  ]
+                },
+                {
+                  "title": "Quality of Service",
+                  "image_url": "https://www.hbs.edu/mba/PublishingImages/icon-handshake.png",
+                  "subtitle": "Category for our service quality related queries",
+                  "buttons": [
+                    {
+                      "type": "postback",
+                      "title": "Select",
+                      "payload": "quality of service"
+                    }
+                  ]
+                },
+                {
+                  "title": "Payment related",
+                  "image_url": "https://www.rupay.co.in/sites/all/themes/rupay/images/cashback.png",
+                  "subtitle": "Category for all payment related queries",
+                  "buttons": [
+                    {
+                      "type": "postback",
+                      "title": "Select",
+                      "payload": "payment"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
         ]
     
 
