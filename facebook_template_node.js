@@ -13,80 +13,80 @@ app.post('/', function (req, res) {
   console.log("app started nilesh");
   var fbresponse = {
 
-
-    "messages": [
-      {
-        "type": 4,
-        "platform": "facebook",
-        "payload": {
-          "facebook": {
-            "attachment": {
-              "type": "template",
-              "payload": {
-                "template_type": "generic",
-                "elements": [
-                  {
-                    "title": "Welcome!",
-                    "image_url": "https://auto.ndtvimg.com/bike-images/colors/suzuki/intruder/suzuki-intruder-glass-sparkle-black.png?v=14",
-                    "subtitle": "We have the right hat for everyone.",
-                    "buttons": [
-                      {
-                        "type": "web_url",
-                        "url": "https://petersfancybrownhats.com",
-                        "title": "View Website"
-                      },
-                      {
-                        "type": "postback",
-                        "title": "Start Chatting",
-                        "payload": "DEVELOPER_DEFINED_PAYLOAD"
-                      }
-                    ]
-                  },
-                  {
-                    "title": "Welcome!",
-                    "image_url": "https://petersfancybrownhats.com/company_image.png",
-                    "subtitle": "We have the right hat for everyone.",
-                    "buttons": [
-                      {
-                        "type": "web_url",
-                        "url": "https://petersfancybrownhats.com",
-                        "title": "View Website"
-                      },
-                      {
-                        "type": "postback",
-                        "title": "Start Chatting",
-                        "payload": "DEVELOPER_DEFINED_PAYLOAD"
-                      }
-                    ]
-                  },
-                  {
-                    "title": "Welcome!",
-                    "image_url": "https://petersfancybrownhats.com/company_image.png",
-                    "subtitle": "We have the right hat for everyone.",
-                    "buttons": [
-                      {
-                        "type": "web_url",
-                        "url": "https://petersfancybrownhats.com",
-                        "title": "View Website"
-                      },
-                      {
-                        "type": "postback",
-                        "title": "Start Chatting",
-                        "payload": "DEVELOPER_DEFINED_PAYLOAD"
-                      }
-                    ]
-                  }
-                ]
-              }
-            }
-          }
-        }
-      },
-      {
-        "type": 0,
-        "speech": "Hi!"
-      }
-    ]
+/////////////////////////courosel///////////////////////////////////////////////////////////
+    // "messages": [
+    //   {
+    //     "type": 4,
+    //     "platform": "facebook",
+    //     "payload": {
+    //       "facebook": {
+    //         "attachment": {
+    //           "type": "template",
+    //           "payload": {
+    //             "template_type": "generic",
+    //             "elements": [
+    //               {
+    //                 "title": "Welcome!",
+    //                 "image_url": "https://auto.ndtvimg.com/bike-images/colors/suzuki/intruder/suzuki-intruder-glass-sparkle-black.png?v=14",
+    //                 "subtitle": "We have the right hat for everyone.",
+    //                 "buttons": [
+    //                   {
+    //                     "type": "web_url",
+    //                     "url": "https://petersfancybrownhats.com",
+    //                     "title": "View Website"
+    //                   },
+    //                   {
+    //                     "type": "postback",
+    //                     "title": "Start Chatting",
+    //                     "payload": "DEVELOPER_DEFINED_PAYLOAD"
+    //                   }
+    //                 ]
+    //               },
+    //               {
+    //                 "title": "Welcome!",
+    //                 "image_url": "https://petersfancybrownhats.com/company_image.png",
+    //                 "subtitle": "We have the right hat for everyone.",
+    //                 "buttons": [
+    //                   {
+    //                     "type": "web_url",
+    //                     "url": "https://petersfancybrownhats.com",
+    //                     "title": "View Website"
+    //                   },
+    //                   {
+    //                     "type": "postback",
+    //                     "title": "Start Chatting",
+    //                     "payload": "DEVELOPER_DEFINED_PAYLOAD"
+    //                   }
+    //                 ]
+    //               },
+    //               {
+    //                 "title": "Welcome!",
+    //                 "image_url": "https://petersfancybrownhats.com/company_image.png",
+    //                 "subtitle": "We have the right hat for everyone.",
+    //                 "buttons": [
+    //                   {
+    //                     "type": "web_url",
+    //                     "url": "https://petersfancybrownhats.com",
+    //                     "title": "View Website"
+    //                   },
+    //                   {
+    //                     "type": "postback",
+    //                     "title": "Start Chatting",
+    //                     "payload": "DEVELOPER_DEFINED_PAYLOAD"
+    //                   }
+    //                 ]
+    //               }
+    //             ]
+    //           }
+    //         }
+    //       }
+    //     }
+    //   },
+    //   {
+    //     "type": 0,
+    //     "speech": "Hi!"
+    //   }
+    // ]
 
     ///////////////////////////////list////////////////////////////////
 
