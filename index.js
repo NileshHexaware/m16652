@@ -19,8 +19,7 @@ var fbmodularity=require('./facebook_modularity')
     {
       return res.json(fbmodularity.fbsubcategoryNetwork);
     
-   
-}
+   }
 
   if (req.body.result.parameters.Category=== 'Hardware')
   {

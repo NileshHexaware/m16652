@@ -14,7 +14,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node facebook_template_node.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
