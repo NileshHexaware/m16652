@@ -2,7 +2,7 @@
 
 var funsubcategoryNetwork=function(req,res)
 {
-    var fbsubcategoryNetwork={
+    var subcategoryNetwork={
         "speech": "",
         "messages": [
           {
@@ -34,7 +34,7 @@ var funsubcategoryNetwork=function(req,res)
     
       };
 
-      return fbsubcategoryNetwork;
+      return subcategoryNetwork;
 }
 
-module.exports.fbsubcategoryNetwork=funsubcategoryNetwork;
+module.exports.subcategoryNetwork=funsubcategoryNetwork;
