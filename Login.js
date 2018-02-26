@@ -19,7 +19,7 @@ const pageFieldSet = 'name, category, link, picture, is_verified';
       method: 'GET',
       uri: 'https://graph.facebook.com/search',
       qs: {
-        access_token: config.user_access_token,
+        access_token: "EAALWyUke73EBAImeQRJviR5dx1t4KRhemUks9fN67a4ZC8uZAyVZB0LfQtKAL6Yk0VBlhwSHGVCqQ7LKoSZBId4IWZBXLi7ogWNb2hgAbhQ0UFLf3RIZAGM1oI10SmxLWwkfzojbZAl3cNHYeCTDpXUoUzE5A8zrQzTOOgpXwcEAo5dtjdWlAUGYEWrSo4lITSyF9sZAB0JZCGgZDZD",
         q: queryTerm,
         type: searchType,
         fields: searchType === 'page' ? pageFieldSet : userFieldSet
@@ -38,4 +38,4 @@ const pageFieldSet = 'name, category, link, picture, is_verified';
 
 app.listen(portC,function(req,res){
     console.log('AGENT is running my app on  PORT: ' + portC);
-})
+});
