@@ -5,11 +5,14 @@ var portC = process.env.PORT || 4000;
 const request = require('request-promise');
 
 
+
+
 const userFieldSet = 'name, link, is_verified, picture';
 const pageFieldSet = 'name, category, link, picture, is_verified';
 
 
   app.post('/', (req, res) => {
+      console.log("nilesh login");
     const  { queryTerm, searchType } = req.body;
 
     const options = {
