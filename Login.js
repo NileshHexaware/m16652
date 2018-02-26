@@ -9,7 +9,7 @@ const userFieldSet = 'name, link, is_verified, picture';
 const pageFieldSet = 'name, category, link, picture, is_verified';
 
 
-  app.post('/facebook-search', (req, res) => {
+  app.post('/', (req, res) => {
     const  { queryTerm, searchType } = req.body;
 
     const options = {
