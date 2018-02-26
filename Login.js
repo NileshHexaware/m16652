@@ -13,7 +13,7 @@ const pageFieldSet = 'name, category, link, picture, is_verified';
 
   app.post('/', (req, res) => {
       console.log("nilesh login");
-    const  { queryTerm, searchType } = req.body;
+    
 
     const options = {
       method: 'GET',
