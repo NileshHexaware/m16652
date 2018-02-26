@@ -8,6 +8,7 @@ var portC = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 var incident=require('./DAL');
+var fbmodularity=require('./facebook_modularity')
 
 
    app.post('/',function(req,res){
@@ -16,38 +17,9 @@ var incident=require('./DAL');
    
     if (req.body.result.parameters.Category=== 'Network')
     {
-    var fbresponse={
-    "speech": "",
-    "messages": [
-      {
-        "type": 1,
-        "platform": "facebook",
-        "title": "Servicenow",
-        "subtitle": "Servicenow",
-        "imageUrl": "https://botw-pd.s3.amazonaws.com/styles/logo-thumbnail/s3/122013/untitled-1_86.png?itok=jqHZFAoG",
-        "buttons": [
-          {
-            "text": "DHCP",
-            "postback": "DHCP"
-          },
-          {
-            "text": "DNS",
-            "postback": "DNS"
-          },
-          {
-            "text": "IP Address",
-            "postback": "IP Address"
-          }
-        ]
-      },
-      {
-        "type": 0,
-        "speech": ""
-      }
-    ]
-
-  };
-  return res.json(fbresponse);
+      return res.json(fbmodularity.fbsubcategoryNetwork);
+    }
+   
 }
 
   if (req.body.result.parameters.Category=== 'Hardware')
