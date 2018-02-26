@@ -11,26 +11,35 @@ const userFieldSet = 'name, link, is_verified, picture';
 const pageFieldSet = 'name, category, link, picture, is_verified';
 
 
-  app.post('/', (req, res) => {
-      console.log("nilesh login");
-    //const  { queryTerm, searchType } = req.body;
+app.post('/', function (req, res) {
+    userProfile(function(req,resu){
+        console.log(JSON.stringify(resu));
+    });
+});
 
-    const options = {
-      method: 'GET',
-      uri: 'https://graph.facebook.com/me?access_token=EAALWyUke73EBAImeQRJviR5dx1t4KRhemUks9fN67a4ZC8uZAyVZB0LfQtKAL6Yk0VBlhwSHGVCqQ7LKoSZBId4IWZBXLi7ogWNb2hgAbhQ0UFLf3RIZAGM1oI10SmxLWwkfzojbZAl3cNHYeCTDpXUoUzE5A8zrQzTOOgpXwcEAo5dtjdWlAUGYEWrSo4lITSyF9sZAB0JZCGgZDZD',
-     
+
+
+function userProfile(callback) {
+
+    console.log("User profile");
+    var options = {
+        method: 'GET',
+        url: 'https://graph.facebook.com/me?access_token=EAAVjLMRrvo4BAFoYzACgMRht9ZBpZBlwlbZBM60gwiHtMDdfwDvv3ZAtyZBTODj6eErxfs0tZC9x8nSae1jcgErCpoW6ICIlXFCEOkQjWSQVubhheucSzZB00oSwGZCcz2Cahc6rCRyCoKGIkbF2gV7G9otZChhnPhWwN8sNnGFfS3oUBO2kuSw8XL9bTtZAlxC65YS10UJinJkAZDZD'
+
+
+        // qs: { username: name },
     };
 
-    request(options)
-      .then(fbRes => {
-        const parsedRes = JSON.parse(fbRes).data; 
-        console.log(parsedRes);
-        res.json(parsedRes);
-      })
-  });
+
+    request(options, function (error, response, body) {
+        if (error) throw new Error(error);
+
+        console.log("Success : " + body);
+        callback(null, body);
+    });
+}
 
 
-
-app.listen(portC,function(req,res){
+app.listen(portC, function (req, res) {
     console.log('AGENT is running my app on  PORT: ' + portC);
 });
