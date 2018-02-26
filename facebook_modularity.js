@@ -2,7 +2,7 @@
 
 var funsubcategoryNetwork=function(req,res)
 {
-    var subcategoryNetwork={
+    var objsubcatNetwork={
         "speech": "",
         "messages": [
           {
@@ -34,7 +34,7 @@ var funsubcategoryNetwork=function(req,res)
     
       };
 
-      return subcategoryNetwork;
+      return objsubcatNetwork;
 }
 
 module.exports.subcategoryNetwork=funsubcategoryNetwork;
