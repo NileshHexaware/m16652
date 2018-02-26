@@ -17,13 +17,8 @@ const pageFieldSet = 'name, category, link, picture, is_verified';
 
     const options = {
       method: 'GET',
-      uri: 'https://graph.facebook.com/me',
-      qs: {
-        access_token: "EAALWyUke73EBAImeQRJviR5dx1t4KRhemUks9fN67a4ZC8uZAyVZB0LfQtKAL6Yk0VBlhwSHGVCqQ7LKoSZBId4IWZBXLi7ogWNb2hgAbhQ0UFLf3RIZAGM1oI10SmxLWwkfzojbZAl3cNHYeCTDpXUoUzE5A8zrQzTOOgpXwcEAo5dtjdWlAUGYEWrSo4lITSyF9sZAB0JZCGgZDZD"
-        // q: queryTerm,
-        // type: searchType,
-        // fields: searchType === 'page' ? pageFieldSet : userFieldSet
-      }
+      uri: 'https://graph.facebook.com/me?access_token=EAALWyUke73EBAImeQRJviR5dx1t4KRhemUks9fN67a4ZC8uZAyVZB0LfQtKAL6Yk0VBlhwSHGVCqQ7LKoSZBId4IWZBXLi7ogWNb2hgAbhQ0UFLf3RIZAGM1oI10SmxLWwkfzojbZAl3cNHYeCTDpXUoUzE5A8zrQzTOOgpXwcEAo5dtjdWlAUGYEWrSo4lITSyF9sZAB0JZCGgZDZD',
+     
     };
 
     request(options)
