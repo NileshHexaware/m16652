@@ -14,6 +14,7 @@ const pageFieldSet = 'name, category, link, picture, is_verified';
 app.post('/', function (req, res) {
     userProfile(function(req,resu){
         console.log(JSON.stringify(resu));
+        var success=resu["name"];
     });
 });
 
@@ -24,7 +25,7 @@ function userProfile(callback) {
     console.log("User profile");
     var options = {
         method: 'GET',
-        url: 'https://graph.facebook.com/me?access_token=EAAVjLMRrvo4BAFoYzACgMRht9ZBpZBlwlbZBM60gwiHtMDdfwDvv3ZAtyZBTODj6eErxfs0tZC9x8nSae1jcgErCpoW6ICIlXFCEOkQjWSQVubhheucSzZB00oSwGZCcz2Cahc6rCRyCoKGIkbF2gV7G9otZChhnPhWwN8sNnGFfS3oUBO2kuSw8XL9bTtZAlxC65YS10UJinJkAZDZD'
+        url: 'https://graph.facebook.com/me?access_token=EAACdyZATFKroBAEd9NSDzM4ck602h96GoEHeUrFtfKmqYMKV22T5z2n14tvHUn97WDzOBepZAhZAeVSFSdPIj8A68AmZAfTZBVwUWZAaZChmNMAkvbaJjuPrjo69q8B7CU0ME3MjEMEuDNmYDWfsabHXsYH53IJqH95KQuwdN2YR1TNd3YpBFpd4ZBOE7BkwgM0ZD'
 
 
         // qs: { username: name },
