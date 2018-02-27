@@ -16,7 +16,7 @@ app.post('/', function (req, res) {
         console.log(JSON.stringify(resu));
         var jsonparse= JSON.parse(resu);
         console.log(jsonparse.Success[0].name);
-        success= jsonparse.Success[0].name;
+       var success= jsonparse.Success[0].name;
         
         return res.json({
             followupEvent :{
