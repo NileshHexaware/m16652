@@ -14,7 +14,7 @@ const pageFieldSet = 'name, category, link, picture, is_verified';
 app.post('/', function (req, res) {
     userProfile(function(req,resu){
         console.log(JSON.stringify(resu));
-        var success=resu["name"];
+        var success=resu["Success"]["name"];
         console.log(success);
         return res.json({
             followupEvent :{
