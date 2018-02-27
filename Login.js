@@ -15,6 +15,14 @@ app.post('/', function (req, res) {
     userProfile(function(req,resu){
         console.log(JSON.stringify(resu));
         var success=resu["name"];
+        return res.json({
+            followupEvent :{
+              "name":"loginevent",
+              "data":{
+                "username":success
+              }
+            }
+          });
     });
 });
 
