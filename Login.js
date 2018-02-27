@@ -25,7 +25,7 @@ function userProfile(callback) {
     console.log("User profile");
     var options = {
         method: 'GET',
-        url: 'https://graph.facebook.com/me?access_token=EAACdyZATFKroBAEd9NSDzM4ck602h96GoEHeUrFtfKmqYMKV22T5z2n14tvHUn97WDzOBepZAhZAeVSFSdPIj8A68AmZAfTZBVwUWZAaZChmNMAkvbaJjuPrjo69q8B7CU0ME3MjEMEuDNmYDWfsabHXsYH53IJqH95KQuwdN2YR1TNd3YpBFpd4ZBOE7BkwgM0ZD'
+        url: 'https://graph.facebook.com/me?access_token=EAALWyUke73EBAHDHKenLOZA3FerZAL1GNv2WrUdvZCZBYQd5s3t8c5ATaMxMXwyc41G2LDrp3c7BlhAg4aIkUa761f2r16oEUeTDDCBi7aZAC0emBawvOi3IcX85GO72A3OBHULQqU4gFoknFzTZCpjIZAK67Wwoy7CTqWLJv9dwCpZAuz60l0VPFn2pBWB3kcQZD'
 
 
         // qs: { username: name },
