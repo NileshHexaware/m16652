@@ -15,8 +15,8 @@ app.post('/', function (req, res) {
     userProfile(function(req,resu){
         console.log(JSON.stringify(resu));
         var jsonparse= JSON.parse(resu);
-        console.log(jsonparse.Success[0].name);
-       var success= jsonparse.Success[0].name;
+        console.log(jsonparse.name);
+       var success= jsonparse.name;
         
         return res.json({
             followupEvent :{
