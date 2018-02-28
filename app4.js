@@ -37,6 +37,10 @@ app.use(bodyParser.json());
         // };
 
         // return res.json(fbres);
+        const signInButton = {
+            type: 'account_link',
+            url: 'https://www.gmail.com',
+          };
 
         const createAccountMessage = {
             attachment: {
@@ -46,13 +50,11 @@ app.use(bodyParser.json());
                 text: 'Ready to do this? You’ll need to log in to your Jasper’s account so I can access your past orders.',
                 buttons: [signInButton],
               },
+
             },
           };
 
-          const signInButton = {
-            type: 'account_link',
-            url: 'https://www.gmail.com',
-          };
+         
    
     //     incident.logIncident("incident 1111",'',function(err,res){
     // var success=res["result"]["number"];
