@@ -23,9 +23,9 @@ app.use(bodyParser.json());
                           "text": "Hi! 👋 Welcome to Service Now!Ready to do this? need to log in to your Gmail account.",
                           "buttons": [
                             {
-                              "type": "web_url",
-                              "url": "https://www.gmail.com",
-                              "title": "Login"
+                              "type": "account_link",
+                              "url": "https://www.gmail.com"
+                              //"title": "Login"
                             }
                           ]
                         }
