@@ -9,34 +9,50 @@ app.use(bodyParser.json());
     app.post('/',function(req,res){
 
 
-        var fbres={
-            "messages": [
-                {
-                  "type": 4,
-                  "platform": "facebook",
-                  "payload": {
-                    "facebook": {
-                      "attachment": {
-                        "type": "template",
-                        "payload": {
-                          "template_type": "button",
-                          "text": "Hi! 👋 Welcome to Service Now!Ready to do this? need to log in to your Gmail account.",
-                          "buttons": [
-                            {
-                              "type": "web_url",
-                              "url": "https://www.gmail.com",
-                              "title": "Login"
-                            }
-                          ]
-                        }
-                      }
-                    }
-                  }
-                }
-            ]
-        };
+        // var fbres={
+        //     "messages": [
+        //         {
+        //           "type": 4,
+        //           "platform": "facebook",
+        //           "payload": {
+        //             "facebook": {
+        //               "attachment": {
+        //                 "type": "template",
+        //                 "payload": {
+        //                   "template_type": "button",
+        //                   "text": "Hi! 👋 Welcome to Service Now!Ready to do this? need to log in to your Gmail account.",
+        //                   "buttons": [
+        //                     {
+        //                       "type": "web_url",
+        //                       "url": "https://www.gmail.com",
+        //                       "title": "Login"
+        //                     }
+        //                   ]
+        //                 }
+        //               }
+        //             }
+        //           }
+        //         }
+        //     ]
+        // };
 
-        return res.json(fbres);
+        // return res.json(fbres);
+
+        const createAccountMessage = {
+            attachment: {
+              type: 'template',
+              payload: {
+                template_type: 'button',
+                text: 'Ready to do this? You’ll need to log in to your Jasper’s account so I can access your past orders.',
+                buttons: [signInButton],
+              },
+            },
+          };
+
+          const signInButton = {
+            type: 'account_link',
+            url: 'https://www.gmail.com',
+          };
    
     //     incident.logIncident("incident 1111",'',function(err,res){
     // var success=res["result"]["number"];
