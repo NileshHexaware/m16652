@@ -52,6 +52,7 @@ app.post('/', function (req, res) {
       if (isAlphanumeric(incidentcheck)) {
         incident.statusIncident(req.body.result.parameters.incidentno, function (err, resul) {
           var jsonparse = JSON.parse(resul);
+          console.log(jsonparse);
           if (jsonparse.hasOwnProperty('result')) {
             return res.json({
               followupEvent: {
