@@ -14,83 +14,22 @@ var fbmodularity=require('./facebook_modularity')
 
    app.post('/',function(req,res){
     
-    if(req.body.originalRequest.source=='facebook'){
+if(req.body.originalRequest.source=='facebook'){
    
-    if (req.body.result.parameters.Category=== 'Network')
-    {
-      return res.json(fbmodularity.subcategoryNetwork(req,res));
-    
-   }
+  if (req.body.result.parameters.Category=== 'Network')
+  {
+    return res.json(fbmodularity.subcategoryNetwork(req,res));
+  }
 
   if (req.body.result.parameters.Category=== 'Hardware')
   {
-  var fbresponse={
-  "speech": "",
-  "messages": [
-    {
-      "type": 1,
-      "platform": "facebook",
-      "title": "Servicenow",
-      "subtitle": "Servicenow",
-      "imageUrl": "https://botw-pd.s3.amazonaws.com/styles/logo-thumbnail/s3/122013/untitled-1_86.png?itok=jqHZFAoG",
-      "buttons": [
-        {
-          "text": "Monitor",
-          "postback": "Monitor"
-        },
-        {
-          "text": "Keyboard",
-          "postback": "Keyboard"
-        },
-        {
-          "text": "Mouse",
-          "postback": "Mouse"
-        }
-      ]
-    },
-    {
-      "type": 0,
-      "speech": ""
-    }
-  ]
-};
-return res.json(fbresponse);
+    return res.json(fbmodularity.subcategoryHardware(req,res));
   }
 
   if (req.body.result.parameters.Category=== 'Software')
-    {
-    var fbresponse={
-    "speech": "",
-    "messages": [
-      {
-        "type": 1,
-        "platform": "facebook",
-        "title": "Servicenow",
-        "subtitle": "Servicenow",
-        "imageUrl": "https://botw-pd.s3.amazonaws.com/styles/logo-thumbnail/s3/122013/untitled-1_86.png?itok=jqHZFAoG",
-        "buttons": [
-          {
-            "text": "Email",
-            "postback": "Email"
-          },
-          {
-            "text": "OS",
-            "postback": "OS"
-          },
-          {
-            "text": "Mac",
-            "postback": "Mac"
-          }
-        ]
-      },
-      {
-        "type": 0,
-        "speech": ""
-      }
-    ]
-  };
-  return res.json(fbresponse);
-}
+  {
+    return res.json(fbmodularity.subcategorySoftware(req,res));
+  }
 
 //Rest Api Call started
 
