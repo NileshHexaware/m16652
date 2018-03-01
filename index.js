@@ -7,8 +7,8 @@ var app = express();
 var portC = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
-//var incident=require('./DAL');
-import incident from '/DAL';
+var incident=require('./DAL');
+//import incident from '/DAL';
 var fbmodularity=require('./facebook_modularity')
 
 
@@ -18,7 +18,7 @@ var fbmodularity=require('./facebook_modularity')
    
     if (req.body.result.parameters.Category=== 'Network')
     {
-      return res.json(fbmodularity.subcategoryNetwork);
+      return res.json(fbmodularity.subcategoryNetwork(req,res));
     
    }
 

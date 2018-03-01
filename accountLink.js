@@ -1,32 +1,134 @@
 
- client_id = '<the id you get from google>.apps.googleusercontent.com'
- client_secret = '<the secret you get from google>'
- redirect_uri = 'https://your.registered/callback'
 
 
- authorization_base_url = "https://accounts.google.com/o/oauth2/v2/auth"
- token_url = "https://www.googleapis.com/oauth2/v4/token"
- scope = [
-     "https://www.googleapis.com/auth/userinfo.email",
-     "https://www.googleapis.com/auth/userinfo.profile"
- ]
-
- 
- google = OAuth2Session(client_id, scope=scope, redirect_uri=redirect_uri)
-
- 
- authorization_url, state = google.authorization_url(authorization_base_url,
-
- access_type="offline", prompt="select_account")
-authorization_url
 
 
-redirect_response = raw_input('Paste the full redirect URL here:')
+const SERVER_URL = process.env.SERVER_URL; // eslint-disable-line
 
+/**
++ * Account Link Button
++ */
+const signInButton = {
+  type: 'account_link',
+  url: `${SERVER_URL}/users/login`,
+};
 
-google.fetch_token(token_url, client_secret=client_secret,
-         authorization_response=redirect_response)
+/**
++ * Account Unlink Button
++ */
+const signOutButton = {type: 'account_unlink'};
 
+/**
++ * Message that informs the user the must sign in and prompts
++ * them to set link their account.
++ */
+const createAccountMessage = {
+  attachment: {
+    type: 'template',
+    payload: {
+      template_type: 'button',
+      text: 'Ready to do this? You’ll need to log in to your Jasper’s account so I can access your past orders.',
+      buttons: [signInButton],
+    },
+  },
+};
 
- r = google.get('https://www.googleapis.com/oauth2/v1/userinfo')
- console.log(r.content);
+/**
++ * Fun message for saying hello to a signed in user.
++ *
++ * @param {String} username System username of the currently logged in user
++ * @returns {Object} Message payload
++ */
+const signInGreetingMessage = (username) => {
+  return {
+    text: `Welcome back, ${username}!`,
+  };
+};
+
+/**
++ * Message that informs the user they've been succesfully logged in.
++ *
++ * @param {String} username System username of the currently logged in user
++ * @returns {Object} Message payload
++ */
+const signInSuccessMessage = {
+  attachment: {
+    type: 'template',
+    payload: {
+      template_type: 'button',
+      text: 'Now you’ll have full access to your order history and shopping list.',
+      buttons: [signOutButton],
+    },
+  },
+};
+
+/**
++ * Message that informs the user they've been succesfully logged out.
++ */
+const signOutSuccessMessage = {
+  attachment: {
+    type: 'template',
+    payload: {
+      template_type: 'button',
+      text: 'You’ve been logged out of your Jasper’s account.',
+      buttons: [signInButton],
+    },
+  },
+};
+
+/**
++ * Message that informs the user they are currently logged in.
++ *
++ * @param {String} username System username of the currently logged in user
++ * @returns {Object} Message payload
++ */
+const loggedInMessage = (username) => {
+  return {
+    attachment: {
+      type: 'template',
+      payload: {
+        template_type: 'button',
+        text: `You’re still logged in as ${username}.`,
+        buttons: [signOutButton],
+      },
+    },
+  };
+};
+
+/**
++ * Fun message for saying hello to a signed in user.
++ */
+const napMessage = {
+  text: 'Oh hey there! I was just napping while you were gone 😴. But I’m awake now!',
+};
+
+/**
++ * The Get Started button.
+*/
+const getStarted = {
+  setting_type: 'call_to_actions',
+  thread_state: 'new_thread',
+  call_to_actions: [
+    {
+      payload: JSON.stringify({
+        type: 'GET_STARTED',
+      }),
+    },
+  ],
+};
+
+export default {createAccountMessage,
+    signInGreetingMessage,
+    signInSuccessMessage,
+    signOutSuccessMessage,
+    loggedInMessage,
+    napMessage,getStarted};
+// export default {
+//   createAccountMessage,
+//   signInGreetingMessage,
+//   signInSuccessMessage,
+//   signOutSuccessMessage,
+//  loggedInMessage,
+//   napMessage,
+//  getStarted,
+// };
