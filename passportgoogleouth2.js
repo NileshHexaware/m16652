@@ -4,21 +4,22 @@ var express = require('express');
 var app=express();
 var portC = process.env.PORT || 3000;
 app.set('view engine', 'ejs');
+var passport = require('passport');
 var redirecturi = "";
 
-passport.use(new GoogleStrategy({
-
+var strategy =new GoogleStrategy(
+    {
     // pull in our app id and secret from our auth.js file
     clientID        : configAuth.googleAuth.clientID,
     clientSecret    : configAuth.googleAuth.clientSecret,
     callbackURL     : configAuth.googleAuth.callbackURL
 
-},
+    },
     function (accessToken, refreshToken, extraParams, profile, done) {
       console.log(profile);
       return done(null, profile);
     }
-  ));
+  );
 
 
 app.use(passport.initialize());
