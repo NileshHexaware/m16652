@@ -14,9 +14,9 @@ var slackmodularity = require('./slack_modularity')
 var googlemodularity = require('./google_modularity')
 app.set('view engine', 'ejs');
 var configAuth = require('./config/auth');
-var passport=require('passport');
+var passport = require('passport');
 const facebookStrategy = require('passport-facebook');
-var redirecturi="";
+var redirecturi = "";
 
 app.post('/', function (req, res) {
 
@@ -260,35 +260,23 @@ passport.deserializeUser(function (user, done) {
   done(null, user);
 });
 
-app.get('/login',function(req,res){
+app.get('/login', function (req, res) {
   res.render('index.ejs');
 });
 
-app.get('/auth/facebook', passport.authenticate('facebook', { 
-  scope : ['public_profile', 'email']
+app.get('/auth/facebook', passport.authenticate('facebook', {
+  scope: ['public_profile', 'email']
 }));
 
 
 
 app.get('/callback', passport.authenticate('facebook', {
-}), 
-	function (req, res) {
-  console.log(redirecturi);
-  res.redirect(redirecturi + "&authorization_code=34s4f545");
-	
-});
+}),
+  function (req, res) {
+    console.log(redirecturi);
+    res.redirect(redirecturi + "&authorization_code=34s4f545");
 
-
-function isLoggedIn(req, res, next) {
-
-  // if user is authenticated in the session, carry on
-  if (req.isAuthenticated())
-      return next();
-
-  // if they aren't redirect them to the home page
-  res.redirect('/');
-}
-
+  });
 
 
 app.listen(portC, function () {
