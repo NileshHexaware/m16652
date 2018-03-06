@@ -24,7 +24,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node index.js"
+    "start": "node passportgoogleouth2.js"
   },
   "repository": {
     "type": "git",
