@@ -13,7 +13,7 @@ var fbmodularity = require('./facebook_modularity')
 var slackmodularity = require('./slack_modularity')
 var googlemodularity = require('./google_modularity')
 app.set('view engine', 'ejs');
-var configAuth = require('../config/auth');
+var configAuth = require('./config/auth');
 var passport=require('passport');
 const facebookStrategy = require('passport-facebook');
 
