@@ -261,6 +261,7 @@ passport.deserializeUser(function (user, done) {
 });
 
 app.get('/login', function (req, res) {
+  redirecturi=req.query.redirect_uri;
   res.render('index.ejs');
 });
 
