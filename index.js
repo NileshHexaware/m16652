@@ -236,6 +236,29 @@ app.get('/login',function(req,res){
   res.render('index.ejs');
 });
 
+app.get('/auth/facebook', passport.authenticate('facebook', { 
+  scope : ['public_profile', 'email']
+}));
+
+app.get('/auth/facebook/callback',
+passport.authenticate('facebook', {
+    successRedirect : '/profile',
+    failureRedirect : '/'
+}));
+
+
+function isLoggedIn(req, res, next) {
+
+  // if user is authenticated in the session, carry on
+  if (req.isAuthenticated())
+      return next();
+
+  // if they aren't redirect them to the home page
+  res.redirect('/');
+}
+
+
+
 app.listen(portC, function () {
   console.log('AGENT is running my app on  PORT: ' + portC);
 });
