@@ -242,6 +242,7 @@ var strategy = new facebookStrategy(
     callbackURL: configAuth.facebookAuth.callbackURL
   },
   function (accessToken, refreshToken, extraParams, profile, done) {
+    console.log(profile);
     return done(null, profile);
   }
 );
