@@ -12,6 +12,7 @@ var incident = require('./DAL');
 var fbmodularity = require('./facebook_modularity')
 var slackmodularity = require('./slack_modularity')
 var googlemodularity = require('./google_modularity')
+app.set('view engine', 'ejs');
 
 
 app.post('/', function (req, res) {
