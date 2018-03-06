@@ -1,4 +1,3 @@
-
 var request = require('http');
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -16,6 +15,7 @@ app.set('view engine', 'ejs');
 var configAuth = require('./config/auth');
 var passport = require('passport');
 const facebookStrategy = require('passport-facebook');
+var GoogleStrategy = require( 'passport-google-oauth2' ).Strategy;
 var redirecturi = "";
 
 app.post('/', function (req, res) {
@@ -247,10 +247,25 @@ var strategy = new facebookStrategy(
   }
 );
 
+var gogstrategy =new GoogleStrategy(
+  {
+  // pull in our app id and secret from our auth.js file
+  clientID        : configAuth.googleAuth.clientID,
+  clientSecret    : configAuth.googleAuth.clientSecret,
+  callbackURL     : configAuth.googleAuth.callbackURL
+
+  },
+  function (accessToken, refreshToken, extraParams, profile, done) {
+    console.log(profile);
+    return done(null, profile);
+  }
+);
+
 
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 passport.use(strategy);
+passport.use(gogstrategy);
 
 // you can use this section to keep a smaller payload
 passport.serializeUser(function (user, done) {
@@ -271,8 +286,14 @@ app.get('/auth/facebook', passport.authenticate('facebook', {
 }));
 
 
+app.get('/auth/google', passport.authenticate('google', {
+  scope: ['public_profile', 'email']
+}));
 
-app.get('/callback', passport.authenticate('facebook', {
+
+
+
+app.get('/fb/callback', passport.authenticate('facebook', {
 }),
   function (req, res) {
     console.log(redirecturi);
@@ -280,7 +301,18 @@ app.get('/callback', passport.authenticate('facebook', {
 
   });
 
+  app.get('/gog/callback', passport.authenticate('facebook', {
+  }),
+    function (req, res) {
+      console.log(redirecturi);
+      res.redirect(redirecturi + "&authorization_code=34s4f545");
+  
+    });
+
 
 app.listen(portC, function () {
   console.log('AGENT is running my app on  PORT: ' + portC);
 });
+
+
+ 
