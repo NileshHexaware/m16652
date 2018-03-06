@@ -13,8 +13,9 @@ var fbmodularity = require('./facebook_modularity')
 var slackmodularity = require('./slack_modularity')
 var googlemodularity = require('./google_modularity')
 app.set('view engine', 'ejs');
-
+var configAuth = require('../config/auth');
 var passport=require('passport');
+const facebookStrategy = require('passport-facebook');
 
 
 app.post('/', function (req, res) {
@@ -234,21 +235,48 @@ app.post('/', function (req, res) {
 
 });
 
+var strategy = new facebookStrategy(
+  {
+    clientID: configAuth.facebookAuth.clientID,
+    clientSecret: configAuth.facebookAuth.clientSecret,
+    callbackURL: configAuth.facebookAuth.callbackURL
+  },
+  function (accessToken, refreshToken, extraParams, profile, done) {
+    return done(null, profile);
+  }
+);
+
+
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+passport.use(strategy);
+
+// you can use this section to keep a smaller payload
+passport.serializeUser(function (user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function (user, done) {
+  done(null, user);
+});
+
 app.get('/login',function(req,res){
   res.render('index.ejs');
 });
 
-app.get('/auth/facebook', passport.authenticate('facebookAuth', { 
+app.get('/auth/facebook', passport.authenticate('facebook', { 
   scope : ['public_profile', 'email']
 }));
 
 
 
-app.get('/auth/facebook/callback',
-passport.authenticate('facebook', {
-    successRedirect : '/profile',
-    failureRedirect : '/'
-}));
+app.get('/callback', passport.authenticate('facebook', {
+}), 
+	function (req, res) {
+  console.log(redirecturi);
+  res.redirect(redirecturi + "&authorization_code=34s4f545");
+	
+});
 
 
 function isLoggedIn(req, res, next) {
