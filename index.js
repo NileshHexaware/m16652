@@ -16,7 +16,7 @@ app.set('view engine', 'ejs');
 var configAuth = require('./config/auth');
 var passport=require('passport');
 const facebookStrategy = require('passport-facebook');
-
+var redirecturi="";
 
 app.post('/', function (req, res) {
 
