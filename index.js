@@ -231,6 +231,10 @@ app.post('/', function (req, res) {
 
 });
 
+app.get('/login',function(req,res){
+  res.render('index.ejs');
+});
+
 app.listen(portC, function () {
   console.log('AGENT is running my app on  PORT: ' + portC);
 });
