@@ -238,7 +238,7 @@ app.get('/login',function(req,res){
   res.render('index.ejs');
 });
 
-app.get('/auth/facebook', passport.authenticate('facebook', { 
+app.get('/auth/facebook', passport.authenticate('facebookAuth', { 
   scope : ['public_profile', 'email']
 }));
 
