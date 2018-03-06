@@ -233,7 +233,7 @@ app.post('/', function (req, res) {
 });
 
 app.get('/login',function(req,res){
-  res.render('index.ejs');
+  res.render('views/index.ejs');
 });
 
 app.listen(portC, function () {
