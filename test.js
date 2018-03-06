@@ -1,3 +1,6 @@
-var ent=require('./googleAssistConfig.js');
+setTimeout(function(){
+console.log("Nilesh");
+},2000);
+	
 
-ent.abcd();
+console.log("hello");

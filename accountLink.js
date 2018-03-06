@@ -1,134 +1,20 @@
+{
+  "facebook": {
+    "attachment": {
+      "type": "template",
+      "payload": {
+        "template_type": "button",
+        "text": "Click login button to proceed",
+        "buttons": [
+          {
+            "type": "account_link",
+            "url": "https://accounts.google.com/o/oauth2/auth?client_id=370289834912-8ar3utqcn3oj78dsbfo1ms1sj4f51oej.apps.googleusercontent.com&response_type=code&redirect_uri=https://m16652.auth0.com/login/callback&scope=https://www.googleapis.com/auth/drive.metadata&access_type=offline"
+          }
+        ]
+      }
+    }
+  }
+}
 
 
-
-
-
-const SERVER_URL = process.env.SERVER_URL; // eslint-disable-line
-
-/**
-+ * Account Link Button
-+ */
-const signInButton = {
-  type: 'account_link',
-  url: `${SERVER_URL}/users/login`,
-};
-
-/**
-+ * Account Unlink Button
-+ */
-const signOutButton = {type: 'account_unlink'};
-
-/**
-+ * Message that informs the user the must sign in and prompts
-+ * them to set link their account.
-+ */
-const createAccountMessage = {
-  attachment: {
-    type: 'template',
-    payload: {
-      template_type: 'button',
-      text: 'Ready to do this? You’ll need to log in to your Jasper’s account so I can access your past orders.',
-      buttons: [signInButton],
-    },
-  },
-};
-
-/**
-+ * Fun message for saying hello to a signed in user.
-+ *
-+ * @param {String} username System username of the currently logged in user
-+ * @returns {Object} Message payload
-+ */
-const signInGreetingMessage = (username) => {
-  return {
-    text: `Welcome back, ${username}!`,
-  };
-};
-
-/**
-+ * Message that informs the user they've been succesfully logged in.
-+ *
-+ * @param {String} username System username of the currently logged in user
-+ * @returns {Object} Message payload
-+ */
-const signInSuccessMessage = {
-  attachment: {
-    type: 'template',
-    payload: {
-      template_type: 'button',
-      text: 'Now you’ll have full access to your order history and shopping list.',
-      buttons: [signOutButton],
-    },
-  },
-};
-
-/**
-+ * Message that informs the user they've been succesfully logged out.
-+ */
-const signOutSuccessMessage = {
-  attachment: {
-    type: 'template',
-    payload: {
-      template_type: 'button',
-      text: 'You’ve been logged out of your Jasper’s account.',
-      buttons: [signInButton],
-    },
-  },
-};
-
-/**
-+ * Message that informs the user they are currently logged in.
-+ *
-+ * @param {String} username System username of the currently logged in user
-+ * @returns {Object} Message payload
-+ */
-const loggedInMessage = (username) => {
-  return {
-    attachment: {
-      type: 'template',
-      payload: {
-        template_type: 'button',
-        text: `You’re still logged in as ${username}.`,
-        buttons: [signOutButton],
-      },
-    },
-  };
-};
-
-/**
-+ * Fun message for saying hello to a signed in user.
-+ */
-const napMessage = {
-  text: 'Oh hey there! I was just napping while you were gone 😴. But I’m awake now!',
-};
-
-/**
-+ * The Get Started button.
-*/
-const getStarted = {
-  setting_type: 'call_to_actions',
-  thread_state: 'new_thread',
-  call_to_actions: [
-    {
-      payload: JSON.stringify({
-        type: 'GET_STARTED',
-      }),
-    },
-  ],
-};
-
-export default {createAccountMessage,
-    signInGreetingMessage,
-    signInSuccessMessage,
-    signOutSuccessMessage,
-    loggedInMessage,
-    napMessage,getStarted};
-// export default {
-//   createAccountMessage,
-//   signInGreetingMessage,
-//   signInSuccessMessage,
-//   signOutSuccessMessage,
-//  loggedInMessage,
-//   napMessage,
-//  getStarted,
-// };
+//https://www.facebook.com/v2.10/dialog/oauth?client_id=799109956956017&redirect_uri=https://m16652.auth0.com/login/callback
