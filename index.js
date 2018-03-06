@@ -14,6 +14,8 @@ var slackmodularity = require('./slack_modularity')
 var googlemodularity = require('./google_modularity')
 app.set('view engine', 'ejs');
 
+var passport=require('facebook-passport');
+
 
 app.post('/', function (req, res) {
 
