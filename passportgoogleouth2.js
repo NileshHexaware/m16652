@@ -1,7 +1,8 @@
 var GoogleStrategy = require( 'passport-google-oauth2' ).Strategy;
 var configAuth = require('./config/auth');
+var express = require('express');
+var app=express();
 var portC = process.env.PORT || 3000;
-
 app.set('view engine', 'ejs');
 var redirecturi = "";
 
