@@ -265,9 +265,9 @@ var gogstrategy =new GoogleStrategy(
 var twitterstrategy =new TwitterStrategy(
   {
   // pull in our app id and secret from our auth.js file
-  clientID        : configAuth.googleAuth.clientID,
-  clientSecret    : configAuth.googleAuth.clientSecret,
-  callbackURL     : configAuth.googleAuth.callbackURL
+  consumerKey    : configAuth.twitterAuth.clientID,
+  consumerSecret : configAuth.twitterAuth.clientSecret,
+  callbackURL    : configAuth.twitterAuth.callbackURL
 
   },
   function (token, tokenSecret, profile, done) {
