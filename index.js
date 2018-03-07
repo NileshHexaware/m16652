@@ -277,8 +277,7 @@ var twitterstrategy =new TwitterStrategy(
   }
 );
 
-app.use(express.methodOverride());
-app.use(express.cookieParser());
+
 app.use(express.session({ secret: 'SECRET' }));
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
