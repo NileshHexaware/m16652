@@ -315,9 +315,7 @@ app.get('/auth/google', passport.authenticate('google', {
 }));
 
 
-app.get('/auth/twitter', passport.authenticate('twitter', {
-  scope: ['profile', 'email']
-}));
+app.get('/auth/twitter', passport.authenticate('twitter'));
 
 
 app.get('/fb/callback', passport.authenticate('facebook', {
