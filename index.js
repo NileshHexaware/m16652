@@ -285,7 +285,6 @@ var twitterstrategy =new TwitterStrategy(
 );
 
 
-app.use(express.session({ secret: 'SECRET' }));
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 passport.use(strategy);
@@ -315,9 +314,10 @@ app.get('/auth/google', passport.authenticate('google', {
   scope: ['profile', 'email']
 }));
 
-app.get('/auth/twitter', passport.authenticate('twitter'));
 
-
+app.get('/auth/twitter', passport.authenticate('twitter', {
+  scope: ['profile', 'email']
+}));
 
 
 app.get('/fb/callback', passport.authenticate('facebook', {
