@@ -19,6 +19,12 @@ var GoogleStrategy = require( 'passport-google-oauth' ).OAuth2Strategy;
 var TwitterStrategy  = require('passport-twitter').Strategy;
 var redirecturi = "";
 
+app.use(session({
+  resave: false,
+  saveUninitialized: true,
+  secret: 'bla bla bla' 
+}));
+
 app.post('/', function (req, res) {
 
   if (req.body.originalRequest.source == 'facebook') {
