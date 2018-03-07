@@ -255,7 +255,7 @@ var gogstrategy =new GoogleStrategy(
   callbackURL     : configAuth.googleAuth.callbackURL
 
   },
-  function (accessToken, refreshToken, extraParams, profile, done) {
+  function (token, refreshToken, profile, done) {
     console.log(profile);
     return done(null, profile);
   }
