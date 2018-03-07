@@ -15,7 +15,7 @@ app.set('view engine', 'ejs');
 var configAuth = require('./config/auth');
 var passport = require('passport');
 const facebookStrategy = require('passport-facebook');
-var GoogleStrategy = require( 'passport-google-oauth2' ).Strategy;
+var GoogleStrategy = require( 'passport-google-oauth' ).OAuth2Strategy;
 var redirecturi = "";
 
 app.post('/', function (req, res) {
