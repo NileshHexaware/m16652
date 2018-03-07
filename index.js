@@ -264,11 +264,7 @@ var gogstrategy =new GoogleStrategy(
   }
 );
 
-app.use(expresssession({
-  resave: false,
-  saveUninitialized: true,
-  secret: configAuth.twitterAuth.consumerSecret 
-}));
+
 
 var twitterstrategy =new TwitterStrategy(
   {
@@ -287,6 +283,11 @@ var twitterstrategy =new TwitterStrategy(
 
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
+app.use(expresssession({
+  resave: false,
+  saveUninitialized: true,
+  secret: configAuth.twitterAuth.consumerSecret 
+}));
 passport.use(strategy);
 passport.use(gogstrategy);
 passport.use(twitterstrategy);
