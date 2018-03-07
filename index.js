@@ -17,6 +17,7 @@ var passport = require('passport');
 const facebookStrategy = require('passport-facebook');
 var GoogleStrategy = require( 'passport-google-oauth' ).OAuth2Strategy;
 var TwitterStrategy  = require('passport-twitter').Strategy;
+var expresssession=require('express-session');
 var redirecturi = "";
 
 
@@ -262,6 +263,12 @@ var gogstrategy =new GoogleStrategy(
     return done(null, profile);
   }
 );
+
+app.use(expresssession({
+  resave: false,
+  saveUninitialized: true,
+  secret: configAuth.twitterAuth.consumerSecret 
+}));
 
 var twitterstrategy =new TwitterStrategy(
   {
