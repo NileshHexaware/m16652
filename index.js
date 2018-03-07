@@ -279,15 +279,15 @@ var twitterstrategy =new TwitterStrategy(
     return done(null, profile);
   }
 );
-
-
-app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
 app.use(expresssession({
   resave: false,
   saveUninitialized: true,
   secret: configAuth.twitterAuth.consumerSecret 
 }));
+
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+
 passport.use(strategy);
 passport.use(gogstrategy);
 passport.use(twitterstrategy);
