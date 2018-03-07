@@ -16,6 +16,7 @@ var configAuth = require('./config/auth');
 var passport = require('passport');
 const facebookStrategy = require('passport-facebook');
 var GoogleStrategy = require( 'passport-google-oauth' ).OAuth2Strategy;
+var TwitterStrategy  = require('passport-twitter').Strategy;
 var redirecturi = "";
 
 app.post('/', function (req, res) {
@@ -261,11 +262,25 @@ var gogstrategy =new GoogleStrategy(
   }
 );
 
+var twitterstrategy =new TwitterStrategy(
+  {
+  // pull in our app id and secret from our auth.js file
+  clientID        : configAuth.googleAuth.clientID,
+  clientSecret    : configAuth.googleAuth.clientSecret,
+  callbackURL     : configAuth.googleAuth.callbackURL
+
+  },
+  function (token, tokenSecret, profile, done) {
+    console.log(profile);
+    return done(null, profile);
+  }
+);
 
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 passport.use(strategy);
 passport.use(gogstrategy);
+passport.use(twitterstrategy);
 
 // you can use this section to keep a smaller payload
 passport.serializeUser(function (user, done) {
@@ -290,6 +305,8 @@ app.get('/auth/google', passport.authenticate('google', {
   scope: ['profile', 'email']
 }));
 
+app.get('/auth/twitter', passport.authenticate('twitter'));
+
 
 
 
@@ -308,6 +325,15 @@ app.get('/fb/callback', passport.authenticate('facebook', {
       res.redirect(redirecturi + "&authorization_code=34s4f545");
   
     });
+
+    app.get('/twitter/callback', passport.authenticate('twitter', {
+    }),
+      function (req, res) {
+        console.log(redirecturi);
+        res.redirect(redirecturi + "&authorization_code=34s4f545");
+    
+      });
+  
 
 
 app.listen(portC, function () {

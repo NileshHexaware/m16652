@@ -9,9 +9,9 @@ module.exports = {
     },
 
     'twitterAuth' : {
-        'consumerKey'       : 'your-consumer-key-here',
-        'consumerSecret'    : 'your-client-secret-here',
-        'callbackURL'       : 'http://localhost:8080/auth/twitter/callback'
+        'consumerKey'       : 'QwLvt14xwVQNq9XTOdRCnazjy',
+        'consumerSecret'    : 'uKJHO93feIyYkuYvy6iAcynRK4nLn9XpU707cVWkqZ4GLBT0uF',
+        'callbackURL'       : 'https://flighthexaware.herokuapp.com/twitter/callback'
     },
 
     'googleAuth' : {
