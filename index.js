@@ -301,7 +301,7 @@ app.get('/fb/callback', passport.authenticate('facebook', {
 
   });
 
-  app.get('/gog/callback', passport.authenticate('facebook', {
+  app.get('/gog/callback', passport.authenticate('google', {
   }),
     function (req, res) {
       console.log(redirecturi);
