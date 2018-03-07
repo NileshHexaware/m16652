@@ -287,7 +287,7 @@ app.get('/auth/facebook', passport.authenticate('facebook', {
 
 
 app.get('/auth/google', passport.authenticate('google', {
-  scope: ['public_profile', 'email']
+  scope: ['profile', 'email']
 }));
 
 
