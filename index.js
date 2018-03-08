@@ -18,11 +18,12 @@ const facebookStrategy = require('passport-facebook');
 var GoogleStrategy = require( 'passport-google-oauth' ).OAuth2Strategy;
 var TwitterStrategy  = require('passport-twitter').Strategy;
 var expresssession=require('express-session');
+var fs = require('fs');
 var redirecturi = "";
 
 
 app.post('/', function (req, res) {
-
+writechat(req,res);
   if (req.body.originalRequest.source == 'facebook') {
 
     if (req.body.result.parameters.Category === 'Network') {
@@ -343,7 +344,15 @@ app.get('/fb/callback', passport.authenticate('facebook', {
     
       });
   
+function writechat(req,res)
+{
+  fs.appendFile('mynewfile1.txt', req.body.result.resolvedQuery, function (err) {
+    if (err) throw err;
+    console.log('mynewfile1.txt');
+    res.sendFile()
+  });
 
+}
 
 app.listen(portC, function () {
   console.log('AGENT is running my app on  PORT: ' + portC);
