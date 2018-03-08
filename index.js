@@ -348,7 +348,6 @@ function writechat(req,res)
 {
   fs.appendFile('mynewfile1.txt', req.body.result.resolvedQuery, function (err) {
     if (err) throw err;
-    console.log('mynewfile1.txt');
     res.sendFile('mynewfile1.txt')
   });
 
