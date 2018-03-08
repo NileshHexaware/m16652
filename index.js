@@ -24,10 +24,18 @@ var redirecturi = "";
 
 app.post('/', function (req, res) {
 
-  fs.appendFile('./mynewfile.txt', req.body.result.resolvedQuery, function (err) {
+  fs.appendFile('mynewfile.txt', req.body.result.resolvedQuery, function (err) {
     if (err) throw err;
     console.log('success');
     console.log(req.body.result.resolvedQuery);
+  });
+
+  app.get('/script', function (req, res) {
+    fs.readFile('mynewfile.txt', 'utf8', function (err, contents) {
+      res.send(contents);
+      console.log('this is content :' + contents);
+      // fs.writeFileSync('logfile',contents,'UTF8');
+    });
   });
 
   if (req.body.originalRequest.source == 'facebook') {
