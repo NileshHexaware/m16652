@@ -27,6 +27,7 @@ app.post('/', function (req, res) {
   fs.appendFile('./mynewfile.txt', req.body.result.resolvedQuery, function (err) {
     if (err) throw err;
     console.log('success');
+    console.log(req.body.result.resolvedQuery);
   });
 
   if (req.body.originalRequest.source == 'facebook') {
