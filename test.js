@@ -36,30 +36,9 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 passport.use(strategy);
 
-// you can use this section to keep a smaller payload
-passport.serializeUser(function (user, done) {
-  done(null, user);
-});
-
-passport.deserializeUser(function (user, done) {
-  done(null, user);
-});
-
-app.get('/login', function (req, res) {
-
-  redirecturi=req.query.redirect_uri;
-  res.sendfile('Public/index1.html');
-});
-
-app.get('/auth/facebook', passport.authenticate('facebook', {
-  scope: ['public_profile', 'email']
-}));
+var express=require('express');
+var app=express();
 
 
-app.get('/callback', passport.authenticate('facebook', {
-}), 
-	function (req, res) {
-  console.log(redirecturi);
-  res.redirect(redirecturi + "&authorization_code=34s4f545");
-	
-    });
+app.get('',addword);
+
