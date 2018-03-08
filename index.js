@@ -346,7 +346,7 @@ app.get('/fb/callback', passport.authenticate('facebook', {
   
 function writechat(req,res)
 {
-  fs.appendFile('mynewfile1.txt', req.body.result.resolvedQuery, function (err) {
+  fs.appendFile('mynewfile.txt', req.body.result.resolvedQuery, function (err) {
     if (err) throw err;
     res.sendFile('mynewfile1.txt')
   });
