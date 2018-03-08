@@ -29,7 +29,7 @@ app.post('/', function (req, res) {
   fs.appendFile('mynewfile.txt',messegetext, function (err) {
     if (err) throw err;
     console.log('success');
-    console.log(req.body.result.fulfillment.speech);
+    console.log(req.body.result.resolvedQuery);
   });
 
   app.get('/script', function (req, res) {
