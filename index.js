@@ -20,14 +20,33 @@ var TwitterStrategy  = require('passport-twitter').Strategy;
 var expresssession=require('express-session');
 var fs = require('fs');
 var redirecturi = "";
+var bot="";
+
 
 
 app.post('/', function (req, res) {
 
   var user='<br>'+'User Says : '+ req.body.result.resolvedQuery+'</br>' ;//+ '\r\n Bot Says :' +req.body.result.fulfillment.speech;
-  var bot='<br>'+'Bot Says :'+ req.body.result.fulfillment.messages[12].title+'</br>'+'<br>'+req.body.result.fulfillment.messages[13].title+'</br>';
-  var messegetext=user+bot;
-  fs.appendFile('mynewfile.txt',messegetext, function (err) {
+  //var bot='<br>'+'Bot Says :'+ req.body.result.fulfillment.messages[12].title+'</br>'+'<br>'+req.body.result.fulfillment.messages[13].title+'</br>';
+  var mymessegearray=req.body.result.fulfillment.messages;
+  for (var i = 0; i < mymessegearray; i++) 
+  {
+    if(req.body.result.fulfillment.messages[i].platform=="facebook")
+    {
+       if(bot=="")
+       {
+        bot='<br>'+'Bot Says :'+ req.body.result.fulfillment.messages[i].title
+       }
+       else
+       {
+        bot=bot+'<br>'+req.body.result.fulfillment.messages[i].title+'</br>'
+       }
+    }
+
+  }
+var messagestext=user+bot;
+ 
+fs.appendFile('mynewfile.txt',messagestext, function (err) {
     if (err) throw err;
     console.log('success');
     console.log(req.body.result.fulfillment.messages);
