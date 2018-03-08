@@ -24,7 +24,7 @@ var redirecturi = "";
 
 app.post('/', function (req, res) {
 
-  fs.appendFile('mynewfile.txt', req.body.result.resolvedQuery, function (err) {
+  fs.appendFile('./mynewfile.txt', req.body.result.resolvedQuery, function (err) {
     if (err) throw err;
   });
 
