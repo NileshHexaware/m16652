@@ -24,7 +24,9 @@ var redirecturi = "";
 
 app.post('/', function (req, res) {
 
-  fs.appendFile('mynewfile.txt','User Says : '+ req.body.result.resolvedQuery + '\r\n Bot Says :' +req.body.result.fulfillment.speech, function (err) {
+  var messegetext='User Says : '+ req.body.result.resolvedQuery ;//+ '\r\n Bot Says :' +req.body.result.fulfillment.speech;
+ 
+  fs.appendFile('mynewfile.txt',messegetext, function (err) {
     if (err) throw err;
     console.log('success');
     console.log(req.body.result.fulfillment.speech);
