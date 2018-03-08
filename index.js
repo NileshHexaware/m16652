@@ -26,7 +26,7 @@ app.post('/', function (req, res) {
 
   var user='<br>'+'User Says : '+ req.body.result.resolvedQuery+'</br>' ;//+ '\r\n Bot Says :' +req.body.result.fulfillment.speech;
   var bot='<br>'+'Bot Says :'+ req.body.result.fulfillment.messages[12].title+'</br>'+'<br>'+req.body.result.fulfillment.messages[13].title+'</br>';
-  
+  var messegetext=user+bot;
   fs.appendFile('mynewfile.txt',messegetext, function (err) {
     if (err) throw err;
     console.log('success');
