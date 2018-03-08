@@ -33,7 +33,7 @@ app.post('/', function (req, res) {
   app.get('/script', function (req, res) {
     fs.readFile('mynewfile.txt', 'utf8', function (err, contents) {
       res.send(contents);
-      console.log('this is content :' + contents);
+      console.log('User Says :' + contents);
       // fs.writeFileSync('logfile',contents,'UTF8');
     });
   });
