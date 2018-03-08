@@ -24,10 +24,10 @@ var redirecturi = "";
 
 app.post('/', function (req, res) {
 
-  fs.appendFile('mynewfile.txt','User Says'+ req.body.result.resolvedQuery +'/n Bot Says'+req.body.fulfillment.speech, function (err) {
+  fs.appendFile('mynewfile.txt','User Says'+ req.body.result.resolvedQuery, function (err) {
     if (err) throw err;
     console.log('success');
-    console.log(req.body.result.resolvedQuery);
+    console.log(req.body.result.fulfillment.speech);
   });
 
   app.get('/script', function (req, res) {
