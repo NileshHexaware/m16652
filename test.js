@@ -1,44 +1,108 @@
-setTimeout(function(){
-console.log("Nilesh");
-},2000);
-	
-
-console.log("hello");
-
-
-
-
-
-
-const passport = require('passport');
-const Auth0Strategy = require('passport-auth0');
-const facebookStrategy = require('passport-facebook');
-var configAuth = require('./auth.js');
-
-
-var strategy = new facebookStrategy(
-  {
-    clientID: configAuth.facebookAuth.clientID,
-    clientSecret: configAuth.facebookAuth.clientSecret,
-    callbackURL: configAuth.facebookAuth.callbackURL
+"fulfillment": {
+    "speech": "Welcome to service now.",
+    "messages": [
+      {
+        "type": 0,
+        "platform": "facebook",
+        "speech": "Welcome to service now."
+      },
+      {
+        "type": "simple_response",
+        "platform": "google",
+        "textToSpeech": "Welcome to service now."
+      },
+      {
+        "type": 0,
+        "platform": "slack",
+        "speech": "Welcome to service now."
+      },
+      {
+        "type": 0,
+        "platform": "facebook",
+        "speech": "I can Create Incident or I can search Incident."
+      },
+      {
+        "type": "simple_response",
+        "platform": "google",
+        "textToSpeech": "I can Create Incident or I can search Incident."
+      },
+      {
+        "type": 0, "platform": "slack",
+        "speech": "I can Create Incident or I can search Incident."
+      },
+      {
+        "type": 0,
+        "platform": "slack",
+        "speech": "Welcome to service now."
+      },
+      {
+        "type": 0,
+        "platform": "slack",
+        "speech": "I can Create Incident or I can search Incident."
+      },
+      {
+        "type": 1,
+        "platform": "slack",
+        "title": "HI.I am service now bot.",
+        "imageUrl": "https://botw-pd.s3.amazonaws.com/styles/logo-thumbnail/s3/122013/untitled-1_86.png?itok=jqHZFAoG",
+        "buttons": []
+      },
+      {
+        "type": 2,
+        "platform": "slack",
+        "title": "Please select one of the following",
+        "replies": [
+          "Create Incident",
+          "Get Incident"
+        ]
+      },
+       {
+        "type": "basic_card",
+        "platform": "google",
+        "image": {
+          "url": "https://botw-pd.s3.amazonaws.com/styles/logo-thumbnail/s3/122013/untitled-1_86.png?itok=jqHZFAoG",
+          "accessibilityText": "Service Now Bot"
+        },
+        "buttons": []
+      },
+      {
+        "type": "suggestion_chips",
+        "platform": "google",
+        "suggestions": [
+          {
+            "title": "Get Incident"
+          },
+          {
+            "title": "Create Incident"
+          }
+        ]
+      },
+      {
+        "type": 1,
+        "platform": "facebook",
+        "title": "Hi I am servicenow Bot.",
+        "subtitle": "",
+        "imageUrl": "https://botw-pd.s3.amazonaws.com/styles/logo-thumbnail/s3/122013/untitled-1_86.png?itok=jqHZFAoG",
+        "buttons": []
+      },
+      {
+        "type": 2,
+        "platform": "facebook",
+        "title": "please select below categories",
+        "replies": [
+          "Create Incident",
+          "Get Incident"
+        ]
+      },
+      {
+        "type": 0,
+        "speech": "Welcome to service now."
+      },
+      {
+        "type": 0,
+        "speech": "I can Create Incident or I can search Incident."
+      }
+    ]
   },
-  function (accessToken, refreshToken, extraParams, profile, done) {
-    // accessToken is the token to call Auth0 API (not needed in the most cases)
-    // extraParams.id_token has the JSON Web Token
-    // profile has all the information from the user
-    console.log(profile);
-    return done(null, profile);
-  }
-);
-
-
-app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
-passport.use(strategy);
-
-var express=require('express');
-var app=express();
-
-
-app.get('',addword);
-
+  "score": 1
+}
