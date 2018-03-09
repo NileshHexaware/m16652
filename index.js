@@ -55,6 +55,9 @@ app.post('/', function (req, res) {
 
     if (req.body.result.action == "ActionHello")
     {
+      console.log("enter action hello");
+      console.log(req.body.result.fulfillment.messages[10].title);
+      console.log(req.body.result.fulfillment.messages[11].title);
       bot=req.body.result.fulfillment.messages[10].title +req.body.result.fulfillment.messages[11].title;
       incident.Chatlogs(req.body.result.resolvedQuery,bot,req.body.sessionId);
     }
