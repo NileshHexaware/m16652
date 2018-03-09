@@ -31,6 +31,7 @@ app.post('/', function (req, res) {
   var mymessegearray=req.body.result.fulfillment.messages;
   console.log(mymessegearray.length);
   console.log(mymessegearray);
+  bot="";
   for (var i = 0; i < mymessegearray.length; i++) 
   {
     console.log('for loop enter');
