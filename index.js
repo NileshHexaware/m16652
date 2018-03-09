@@ -60,13 +60,15 @@ app.post('/', function (req, res) {
     }
     if (req.body.result.action == "ActionCategory")
     {
-      console.log(req.body.result.fulfillment.messages[3].buttons[0].text);
       bot=req.body.result.fulfillment.messages[3].title +'<br>'+'select below category -'+req.body.result.fulfillment.messages[3].buttons[0].text+'</br>'+'<br>'+req.body.result.fulfillment.messages[3].buttons[1].text+'</br>'+'<br>'+req.body.result.fulfillment.messages[3].buttons[2].text;
       incident.Chatlogs(req.body.result.resolvedQuery,bot,req.body.sessionId);
     }
 
     if (req.body.result.parameters.Category === 'Network') {
-      return res.json(fbmodularity.subcategoryNetwork(req, res));
+      return res.json(fbmodularity.subcategoryNetwork(req, resp));
+      console.log(resp);
+      //bot=req.body.result.fulfillment.messages[3].title +'<br>'+'select below category -'+req.body.result.fulfillment.messages[3].buttons[0].text+'</br>'+'<br>'+req.body.result.fulfillment.messages[3].buttons[1].text+'</br>'+'<br>'+req.body.result.fulfillment.messages[3].buttons[2].text;
+      incident.Chatlogs(req.body.result.resolvedQuery,bot,req.body.sessionId);
     }
 
     if (req.body.result.parameters.Category === 'Hardware') {
