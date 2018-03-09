@@ -30,7 +30,6 @@ app.post('/', function (req, res) {
   for (var i = 0; i < mymessegearray.length; i++) 
   {
     console.log('for loop enter');
-    console.log(mymessegearray[i].platform);
     if(mymessegearray[i].platform=="facebook")
     {
        if(bot=="")
@@ -44,6 +43,7 @@ app.post('/', function (req, res) {
     }
 
   }
+  console.log(bot);
   incident.Chatlogs(req.body.result.resolvedQuery,bot,req.body.sessionId);
   app.get('/script', function (req, res) {
     fs.readFile('mynewfile.txt', 'utf8', function (err, data) {
