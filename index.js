@@ -20,7 +20,7 @@ var TwitterStrategy  = require('passport-twitter').Strategy;
 var expresssession=require('express-session');
 var fs = require('fs');
 var redirecturi = "";
-var bot=null;
+var bot="";
 
 
 
@@ -29,16 +29,15 @@ app.post('/', function (req, res) {
   var user='<br>'+'User Says : '+ req.body.result.resolvedQuery+'</br>' ;//+ '\r\n Bot Says :' +req.body.result.fulfillment.speech;
   //var bot='<br>'+'Bot Says :'+ req.body.result.fulfillment.messages[12].title+'</br>'+'<br>'+req.body.result.fulfillment.messages[13].title+'</br>';
   var mymessegearray=req.body.result.fulfillment.messages;
-  console.log(mymessegearray.length);
-  console.log(mymessegearray);
-  bot=null;
+  console.log(user);
+  bot="";
   for (var i = 0; i < mymessegearray.length; i++) 
   {
     console.log('for loop enter');
     console.log(mymessegearray[i].platform);
     if(mymessegearray[i].platform=="facebook")
     {
-       if(bot==null)
+       if(bot=="")
        {
         bot='<br>'+'Bot Says :'+ mymessegearray[i].title
        }
