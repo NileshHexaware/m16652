@@ -38,7 +38,7 @@ app.post('/', function (req, res) {
     {
        if(bot=="")
        {
-        bot='<br>'+'Bot Says :'+ mymessegearray[i].title
+        bot='<br>'+'Bot Says :'+ mymessegearray[i].title+'</br>'
        }
        else
        {
