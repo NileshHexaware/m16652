@@ -32,6 +32,7 @@ app.post('/', function (req, res) {
     console.log('for loop enter');
     if(mymessegearray[i].platform=="facebook")
     {
+      console.log('for loop enter platform');
        if(bot=="")
        {
         bot='<br>'+'Bot Says :'+ mymessegearray[i].title+'</br>'
