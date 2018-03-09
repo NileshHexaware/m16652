@@ -74,6 +74,8 @@ app.post('/', function (req, res) {
     //Rest Api Call started
 
     if (req.body.result.action == "CreateIncident.CreateIncident-custom") {
+      console.log('enter create incident');
+      console.log(req.body.result.fulfillment.messages[3].buttons[0].text);
       bot=req.body.result.fulfillment.messages[3].title +'<br>'+'select below category -'+req.body.result.fulfillment.messages[3].buttons[0].text+'</br>'+'<br>'+req.body.result.fulfillment.messages[3].buttons[1].text+'</br>'+'<br>'+req.body.result.fulfillment.messages[3].buttons[2].text;
       incident.Chatlogs(req.body.result.resolvedQuery,bot,req.body.sessionId);
       incident.logIncident(req.body.result.parameters.desc, req.body.result.parameters.severity, req.body.result.parameters.Category, req.body.result.parameters.subcategory, function (err, resu) {
