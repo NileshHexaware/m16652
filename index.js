@@ -48,11 +48,7 @@ app.post('/', function (req, res) {
   console.log(req.body.result.resolvedQuery);
   incident.Chatlogs(req.body.result.resolvedQuery,bot,req.body.sessionId);
 
-  app.get('/script', function (req, res) {
-    fs.readFile('mynewfile.txt', 'utf8', function (err, data) {
-      res.send(data);
-    });
-  });
+
 
   if (req.body.originalRequest.source == 'facebook') {
 
@@ -267,6 +263,12 @@ app.post('/', function (req, res) {
     }
   }
 
+});
+
+app.get('/script', function (req, res) {
+  fs.readFile('mynewfile.txt', 'utf8', function (err, data) {
+    res.send(data);
+  });
 });
 
 var strategy = new facebookStrategy(
