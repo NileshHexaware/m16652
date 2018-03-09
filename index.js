@@ -58,6 +58,12 @@ app.post('/', function (req, res) {
       bot=req.body.result.fulfillment.messages[10].title +req.body.result.fulfillment.messages[11].title;
       incident.Chatlogs(req.body.result.resolvedQuery,bot,req.body.sessionId);
     }
+    if (req.body.result.action == "ActionCategory")
+    {
+      console.log(req.body.result.fulfillment.messages[3].buttons[0].text);
+      bot=req.body.result.fulfillment.messages[3].title +'<br>'+'select below category -'+req.body.result.fulfillment.messages[3].buttons[0].text+'</br>'+'<br>'+req.body.result.fulfillment.messages[3].buttons[1].text+'</br>'+'<br>'+req.body.result.fulfillment.messages[3].buttons[2].text;
+      incident.Chatlogs(req.body.result.resolvedQuery,bot,req.body.sessionId);
+    }
 
     if (req.body.result.parameters.Category === 'Network') {
       return res.json(fbmodularity.subcategoryNetwork(req, res));
@@ -74,11 +80,7 @@ app.post('/', function (req, res) {
     //Rest Api Call started
 
     if (req.body.result.action == "CreateIncident.CreateIncident-custom") {
-      console.log('enter create incident');
-      console.log(req.body.result.fulfillment.messages[3].buttons[0].text);
-      bot=req.body.result.fulfillment.messages[3].title +'<br>'+'select below category -'+req.body.result.fulfillment.messages[3].buttons[0].text+'</br>'+'<br>'+req.body.result.fulfillment.messages[3].buttons[1].text+'</br>'+'<br>'+req.body.result.fulfillment.messages[3].buttons[2].text;
-      incident.Chatlogs(req.body.result.resolvedQuery,bot,req.body.sessionId);
-      incident.logIncident(req.body.result.parameters.desc, req.body.result.parameters.severity, req.body.result.parameters.Category, req.body.result.parameters.subcategory, function (err, resu) {
+        incident.logIncident(req.body.result.parameters.desc, req.body.result.parameters.severity, req.body.result.parameters.Category, req.body.result.parameters.subcategory, function (err, resu) {
         var success = resu["result"]["number"];
         var resagent = "Your incident has been created with incident number:" + success + ".\nNote it down for further enquiry.";
         return res.json({
