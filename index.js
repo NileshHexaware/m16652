@@ -30,8 +30,10 @@ app.post('/', function (req, res) {
   //var bot='<br>'+'Bot Says :'+ req.body.result.fulfillment.messages[12].title+'</br>'+'<br>'+req.body.result.fulfillment.messages[13].title+'</br>';
   var mymessegearray=req.body.result.fulfillment.messages;
   console.log(mymessegearray.length);
+  console.log(mymessegearray);
   for (var i = 0; i < mymessegearray.length; i++) 
   {
+    console.log('for loop enter');
     console.log(mymessegearray[i].platform);
     if(mymessegearray[i].platform=="facebook")
     {
