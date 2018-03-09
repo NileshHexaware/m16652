@@ -62,6 +62,7 @@ fs.appendFile('mynewfile.txt',messagestext, function (err) {
   if (req.body.originalRequest.source == 'facebook') {
 
     if (req.body.result.parameters.Category === 'Network') {
+      console.log(fbmodularity.subcategoryNetwork(req, res));
       return res.json(fbmodularity.subcategoryNetwork(req, res));
     }
 
