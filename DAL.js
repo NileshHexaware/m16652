@@ -49,6 +49,14 @@ module.exports = {
           });
         
     },
+    'Chatlogs':function(usermsg,botreply,sessionid){
+     var user='<br>'+'User Says ('+sessionid+') :' + usermsg+'</br>' ;//+ '\r\n Bot Says :' +req.body.result.fulfillment.speech;
+     var messagestext=user+botreply;
+ 
+fs.appendFile('mynewfile.txt',messagestext, function (err) {
+    if (err) throw err;
+  });
+    }
 
     
      

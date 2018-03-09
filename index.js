@@ -25,8 +25,6 @@ var bot="";
 
 
 app.post('/', function (req, res) {
-
-  var user='<br>'+'User Says ('+req.body.sessionId+') :' + req.body.result.resolvedQuery+'</br>' ;//+ '\r\n Bot Says :' +req.body.result.fulfillment.speech;
   var mymessegearray=req.body.result.fulfillment.messages;
   console.log(user);
   bot="";
@@ -47,12 +45,7 @@ app.post('/', function (req, res) {
     }
 
   }
-var messagestext=user+bot;
- 
-fs.appendFile('mynewfile.txt',messagestext, function (err) {
-    if (err) throw err;
-  });
-
+  incident.Chatlogs(req.body.result.resolvedQuery,bot,req.body.sessionId);
   app.get('/script', function (req, res) {
     fs.readFile('mynewfile.txt', 'utf8', function (err, data) {
       res.send(data);
@@ -62,7 +55,6 @@ fs.appendFile('mynewfile.txt',messagestext, function (err) {
   if (req.body.originalRequest.source == 'facebook') {
 
     if (req.body.result.parameters.Category === 'Network') {
-      console.log(fbmodularity.subcategoryNetwork(req, res));
       return res.json(fbmodularity.subcategoryNetwork(req, res));
     }
 
