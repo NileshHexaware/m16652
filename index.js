@@ -66,7 +66,7 @@ app.post('/', function (req, res) {
 
     if (req.body.result.parameters.Category === 'Network') {
       return res.json(fbmodularity.subcategoryNetwork(req, res));
-      console.log(resp);
+      console.log(res);
       //bot=req.body.result.fulfillment.messages[3].title +'<br>'+'select below category -'+req.body.result.fulfillment.messages[3].buttons[0].text+'</br>'+'<br>'+req.body.result.fulfillment.messages[3].buttons[1].text+'</br>'+'<br>'+req.body.result.fulfillment.messages[3].buttons[2].text;
       incident.Chatlogs(req.body.result.resolvedQuery,bot,req.body.sessionId);
     }
