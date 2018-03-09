@@ -26,7 +26,6 @@ var bot="";
 
 app.post('/', function (req, res) {
   var mymessegearray=req.body.result.fulfillment.messages;
-  console.log(user);
   bot="";
   for (var i = 0; i < mymessegearray.length; i++) 
   {
