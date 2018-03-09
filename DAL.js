@@ -60,7 +60,7 @@ module.exports = {
 
   },
   'Chatlogs': function (usermsg, botreply, sessionid) {
-    var user = '<br>' + 'User Says (' + sessionid + ') :' + usermsg + '</br>' + 'Bot Reply :'+botreply;//+ '\r\n Bot Says :' +req.body.result.fulfillment.speech;
+    var user = '<br>' + 'User Says (' + sessionid + ') :' + usermsg + '</br>' + '<br>'+BotReply+'</br> :'+botreply;//+ '\r\n Bot Says :' +req.body.result.fulfillment.speech;
     fs.appendFile('mynewfile.txt', user, function (err) {
       if (err) throw err;
     });
