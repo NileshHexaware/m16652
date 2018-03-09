@@ -25,32 +25,39 @@ var bot="";
 
 
 app.post('/', function (req, res) {
-  var mymessegearray=req.body.result.fulfillment.messages;
-  bot="";
-  for (var i = 0; i < mymessegearray.length; i++) 
-  {
-    console.log('for loop enter');
-    if(mymessegearray[i].platform=="facebook")
-    {
-      console.log('for loop enter platform');
-       if(bot=="")
-       {
-        bot='<br>'+'Bot Says :'+ mymessegearray[i].title+'</br>'
-       }
-       else
-       {
-        bot=bot+'<br>'+mymessegearray[i].title+'</br>'
-       }
-    }
+  // var mymessegearray=req.body.result.fulfillment.messages;
+  // bot="";
+  // for (var i = 0; i < mymessegearray.length; i++) 
+  // {
+  //   console.log('for loop enter');
+  //   if(mymessegearray[i].platform=="facebook")
+  //   {
+  //     console.log('for loop enter platform');
+  //      if(bot=="")
+  //      {
+  //       bot='<br>'+'Bot Says :'+ mymessegearray[i].title+'</br>'
+  //      }
+  //      else
+  //      {
+  //       bot=bot+'<br>'+mymessegearray[i].title+'</br>'
+  //      }
+  //   }
 
-  }
-  console.log(bot);
-  console.log(req.body.result.resolvedQuery);
-  incident.Chatlogs(req.body.result.resolvedQuery,bot,req.body.sessionId);
+  // }
+  // console.log(bot);
+  // console.log(req.body.result.resolvedQuery);
+  // incident.Chatlogs(req.body.result.resolvedQuery,bot,req.body.sessionId);
 
 
 
   if (req.body.originalRequest.source == 'facebook') {
+
+
+    if (req.body.result.action == "ActionHello")
+    {
+      bot=req.body.result.fulfillment.messages[10].title +req.body.result.fulfillment.messages[11].title;
+      incident.Chatlogs(req.body.result.resolvedQuery,bot,req.body.sessionId);
+    }
 
     if (req.body.result.parameters.Category === 'Network') {
       return res.json(fbmodularity.subcategoryNetwork(req, res));
