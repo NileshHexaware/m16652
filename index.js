@@ -26,7 +26,7 @@ var bot="";
 
 app.post('/', function (req, res) {
 
-  var user='<br>'+'User Says : '+ req.body.result.resolvedQuery+'</br>' ;//+ '\r\n Bot Says :' +req.body.result.fulfillment.speech;
+  var user='<br>'+'User Says ('+req.body.sessionId+') :' + req.body.result.resolvedQuery+'</br>' ;//+ '\r\n Bot Says :' +req.body.result.fulfillment.speech;
   var mymessegearray=req.body.result.fulfillment.messages;
   console.log(user);
   bot="";
