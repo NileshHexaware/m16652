@@ -44,7 +44,9 @@ app.post('/', function (req, res) {
 
   }
   console.log(bot);
+  console.log(req.body.result.resolvedQuery);
   incident.Chatlogs(req.body.result.resolvedQuery,bot,req.body.sessionId);
+
   app.get('/script', function (req, res) {
     fs.readFile('mynewfile.txt', 'utf8', function (err, data) {
       res.send(data);
