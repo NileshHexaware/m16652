@@ -27,7 +27,6 @@ var bot="";
 app.post('/', function (req, res) {
 
   var user='<br>'+'User Says : '+ req.body.result.resolvedQuery+'</br>' ;//+ '\r\n Bot Says :' +req.body.result.fulfillment.speech;
-  //var bot='<br>'+'Bot Says :'+ req.body.result.fulfillment.messages[12].title+'</br>'+'<br>'+req.body.result.fulfillment.messages[13].title+'</br>';
   var mymessegearray=req.body.result.fulfillment.messages;
   console.log(user);
   bot="";
@@ -52,15 +51,11 @@ var messagestext=user+bot;
  
 fs.appendFile('mynewfile.txt',messagestext, function (err) {
     if (err) throw err;
-    console.log('success');
-    console.log(req.body.result.fulfillment.messages);
   });
 
   app.get('/script', function (req, res) {
-    fs.readFile('mynewfile.txt', 'utf8', function (err, contents) {
-      res.send(contents);
-      console.log('User Says :' + contents);
-      // fs.writeFileSync('logfile',contents,'UTF8');
+    fs.readFile('mynewfile.txt', 'utf8', function (err, data) {
+      res.send(data);
     });
   });
 
