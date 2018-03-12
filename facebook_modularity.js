@@ -1,4 +1,4 @@
-
+var incident = require('./DAL');
 
 var funsubcategoryNetwork=function(req,res)
 {
@@ -35,6 +35,9 @@ var funsubcategoryNetwork=function(req,res)
       };
 
       return objsubcatNetwork;
+
+      incident.chatLog(req.body.result.resolvedQuery , 'DHCP' + 'DNS' + 'IP' ,req.body.sessionId);
+
 }
 
 module.exports.subcategoryNetwork=funsubcategoryNetwork;
