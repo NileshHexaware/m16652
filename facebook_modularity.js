@@ -36,7 +36,7 @@ var funsubcategoryNetwork=function(req,res)
 
       return objsubcatNetwork;
 
-      incident.chatLog(req.body.result.resolvedQuery , 'DHCP' + 'DNS' + 'IP Address' ,req.body.sessionId);
+      incident.Chatlogs(req.body.result.resolvedQuery , 'DHCP' + 'DNS' + 'IP Address' ,req.body.sessionId);
 
 }
 
