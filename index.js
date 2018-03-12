@@ -60,41 +60,43 @@ app.post('/', function (req, res) {
     }
     if (req.body.result.action == "ActionCategory")
     {
-      bot=req.body.result.fulfillment.messages[3].title +'<br>'+'select below category -'+req.body.result.fulfillment.messages[3].buttons[0].text+'</br>'+'<br>'+req.body.result.fulfillment.messages[3].buttons[1].text+'</br>'+'<br>'+req.body.result.fulfillment.messages[3].buttons[2].text;
+      bot=req.body.result.fulfillment.messages[3].title +'<br>'+'select below category -'+req.body.result.fulfillment.messages[3].buttons[0].text+' '+req.body.result.fulfillment.messages[3].buttons[1].text+' '+req.body.result.fulfillment.messages[3].buttons[2].text;
       incident.Chatlogs(req.body.result.resolvedQuery,bot,req.body.sessionId);
     }
 
     if (req.body.result.parameters.Category === 'Network') {
-      console.log("Nilesh Network 1");
-      incident.Chatlogs(req.body.result.resolvedQuery , 'DHCP'+ ' ' + 'DNS' +' ' +'IP Address' ,req.body.sessionId);
+      incident.Chatlogs(req.body.result.resolvedQuery ,'select below category -'+ 'DHCP'+ ' ' + 'DNS' +' ' +'IP Address' ,req.body.sessionId);
       return res.json(fbmodularity.subcategoryNetwork(req, res));
     }
 
     if (req.body.result.parameters.Category === 'Hardware') {
-      incident.Chatlogs(req.body.result.resolvedQuery , 'Monitor'+ ' ' + 'Keyboard' +' ' +'Mouse' ,req.body.sessionId);
+      incident.Chatlogs(req.body.result.resolvedQuery ,'select below category -'+ 'Monitor'+ ' ' + 'Keyboard' +' ' +'Mouse' ,req.body.sessionId);
       return res.json(fbmodularity.subcategoryHardware(req, res));
     }
 
     if (req.body.result.parameters.Category === 'Software') {
-      incident.Chatlogs(req.body.result.resolvedQuery , 'Email'+ ' ' + 'OS' +' ' +'Mac' ,req.body.sessionId);
+      incident.Chatlogs(req.body.result.resolvedQuery ,'select below category -'+ 'Email'+ ' ' + 'OS' +' ' +'Mac' ,req.body.sessionId);
       return res.json(fbmodularity.subcategorySoftware(req, res));
     }
 
     //Rest Api Call started
 
     if (req.body.result.action == "CreateIncident.CreateIncident-custom") {
-        incident.logIncident(req.body.result.parameters.desc, req.body.result.parameters.severity, req.body.result.parameters.Category, req.body.result.parameters.subcategory, function (err, resu) {
-        var success = resu["result"]["number"];
-        var resagent = "Your incident has been created with incident number:" + success + ".\nNote it down for further enquiry.";
-        return res.json({
-          followupEvent: {
-            "name": "mainmenuevent",
-            "data": {
-              "incnumber": success
-            }
-          }
-        });
-      });
+       
+        incident.Chatlogs(req.body.result.resolvedQuery ,req.body.resul.fulfillment.messages[0].speech ,req.body.sessionId);
+
+      //   incident.logIncident(req.body.result.parameters.desc, req.body.result.parameters.severity, req.body.result.parameters.Category, req.body.result.parameters.subcategory, function (err, resu) {
+      //   var success = resu["result"]["number"];
+      //   var resagent = "Your incident has been created with incident number:" + success + ".\nNote it down for further enquiry.";
+      //   return res.json({
+      //     followupEvent: {
+      //       "name": "mainmenuevent",
+      //       "data": {
+      //         "incnumber": success
+      //       }
+      //     }
+      //   });
+      // });
     }
 
     if (req.body.result.action == "getincident") {
