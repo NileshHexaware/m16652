@@ -66,10 +66,7 @@ app.post('/', function (req, res) {
 
     if (req.body.result.parameters.Category === 'Network') {
       console.log("Nilesh Network 1");
-      console.log(req.body.result.resolvedQuery);
-      console.log("Nilesh Network 2");
-      console.log(req.body.result.parameters.Category);
-      console.log("Nilesh Network 3");
+      incident.Chatlogs(req.body.result.resolvedQuery , 'DHCP' + 'DNS' + 'IP Address' ,req.body.sessionId);
       return res.json(fbmodularity.subcategoryNetwork(req, res));
     }
 
