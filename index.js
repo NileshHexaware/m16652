@@ -66,6 +66,8 @@ app.post('/', function (req, res) {
 
     if (req.body.result.parameters.Category === 'Network') {
       console.log("Nilesh Network");
+      console.log(req.body.result.resolvedQuery);
+      console.log(req.body.result.parameters.Category);
       return res.json(fbmodularity.subcategoryNetwork(req, res));
     }
 
