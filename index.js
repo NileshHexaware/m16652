@@ -66,15 +66,17 @@ app.post('/', function (req, res) {
 
     if (req.body.result.parameters.Category === 'Network') {
       console.log("Nilesh Network 1");
-      incident.Chatlogs(req.body.result.resolvedQuery , 'DHCP' + 'DNS' + 'IP Address' ,req.body.sessionId);
+      incident.Chatlogs(req.body.result.resolvedQuery , 'DHCP'+ ' ' + 'DNS' +' ' +'IP Address' ,req.body.sessionId);
       return res.json(fbmodularity.subcategoryNetwork(req, res));
     }
 
     if (req.body.result.parameters.Category === 'Hardware') {
+      incident.Chatlogs(req.body.result.resolvedQuery , 'Monitor'+ ' ' + 'Keyboard' +' ' +'Mouse' ,req.body.sessionId);
       return res.json(fbmodularity.subcategoryHardware(req, res));
     }
 
     if (req.body.result.parameters.Category === 'Software') {
+      incident.Chatlogs(req.body.result.resolvedQuery , 'Email'+ ' ' + 'OS' +' ' +'Mac' ,req.body.sessionId);
       return res.json(fbmodularity.subcategorySoftware(req, res));
     }
 
