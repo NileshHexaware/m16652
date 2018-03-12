@@ -86,16 +86,16 @@ app.post('/', function (req, res) {
         incident.Chatlogs(req.body.result.resolvedQuery ,req.body.resul.fulfillment.messages[0].speech ,req.body.sessionId);
 
       //   incident.logIncident(req.body.result.parameters.desc, req.body.result.parameters.severity, req.body.result.parameters.Category, req.body.result.parameters.subcategory, function (err, resu) {
-      //   var success = resu["result"]["number"];
-      //   var resagent = "Your incident has been created with incident number:" + success + ".\nNote it down for further enquiry.";
-      //   return res.json({
-      //     followupEvent: {
-      //       "name": "mainmenuevent",
-      //       "data": {
-      //         "incnumber": success
-      //       }
-      //     }
-      //   });
+        var success = 'Incident Logged Succesfully';//resu["result"]["number"];
+        var resagent = "Your incident has been created with incident number:" + success + ".\nNote it down for further enquiry.";
+        return res.json({
+          followupEvent: {
+            "name": "mainmenuevent",
+            "data": {
+              "incnumber": success
+            }
+          }
+        });
       // });
     }
 
