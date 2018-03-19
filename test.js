@@ -1,16 +1,26 @@
-"type": 1,
-          "platform": "facebook",
-          "title": "Hi I am servicenow Bot.",
-          "subtitle": "",
-          "imageUrl": "https://botw-pd.s3.amazonaws.com/styles/logo-thumbnail/s3/122013/untitled-1_86.png?itok=jqHZFAoG",
-          "buttons": []
-        },
-        {
-          "type": 2,
-          "platform": "facebook",
-          "title": "please select below categories",
-          "replies": [
-            "Create Incident",
-            "Get Incident"
-          ]
-        }
+var sql = require("seriate");
+var express=require('express');
+var app= express();
+// Change the config settings to match your
+// SQL Server and database
+var config = {
+    "host": "127.0.0.1",
+    "user": "sa",
+    "password": "pass@123",
+    "database": "SampleDB"
+};
+
+sql.setDefaultConfig( config );
+
+app.get('/',function(req,res){
+  sql.execute( {
+    query: "select 1"
+} ).then( function( results ) {
+   res.send( results );
+}, function( err ) {
+    console.log( err );
+} );
+})
+
+
+    app.listen(1234);

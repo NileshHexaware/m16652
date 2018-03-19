@@ -21,36 +21,6 @@ var expresssession=require('express-session');
 var fs = require('fs');
 var redirecturi = "";
 var bot="";
-
-var sql=require('mssql');
-
-var dbconfig={
-server:'HEX-MUM1-LAP052\SA',
-database :'SampleDB',
-user :'sa',
-password :'pass@123',
-port :1433
-};
-
-function insertlog(user,bot,sessionID)
-{
-  var conn=new sql.ConnectionPool(dbconfig);
-  var request=new sql.Request(conn);
-  conn.connect(function(err){
-   
-    if(err){
-      console.log(err);
-      return;
-    }
-    var queryinsert="INSERT INTO chatlogs (Usersays, Botsays,SessionId) VALUES ('"+user+"', '"+bot+"' ,'"+sessionID+"')";
-    request.query(queryinsert,function(err,result){
-      if (err) throw err;
-      console.log("1 record inserted");
-    });
-  });
-  conn.close();
-}
-
 app.post('/', function (req, res) {
 
   if (req.body.originalRequest.source == 'facebook') {
@@ -60,7 +30,7 @@ app.post('/', function (req, res) {
     {
       bot=req.body.result.fulfillment.messages[10].title +req.body.result.fulfillment.messages[11].title;
       incident.Chatlogs(req.body.result.resolvedQuery,bot,req.body.sessionId);
-      insertlog(req.body.result.resolvedQuery,bot,req.body.sessionId);
+      
     }
     if (req.body.result.action == "ActionCategory")
     {
