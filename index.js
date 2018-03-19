@@ -34,7 +34,7 @@ port :1433
 
 function insertlog(user,bot,sessionID)
 {
-  var conn=new sql.Connection(dbconfig);
+  var conn=new sql.ConnectionPool(dbconfig);
   var request=new sql.Request(conn);
   conn.connect(function(err){
    
@@ -52,30 +52,6 @@ function insertlog(user,bot,sessionID)
 }
 
 app.post('/', function (req, res) {
-  // var mymessegearray=req.body.result.fulfillment.messages;
-  // bot="";
-  // for (var i = 0; i < mymessegearray.length; i++) 
-  // {
-  //   console.log('for loop enter');
-  //   if(mymessegearray[i].platform=="facebook")
-  //   {
-  //     console.log('for loop enter platform');
-  //      if(bot=="")
-  //      {
-  //       bot='<br>'+'Bot Says :'+ mymessegearray[i].title+'</br>'
-  //      }
-  //      else
-  //      {
-  //       bot=bot+'<br>'+mymessegearray[i].title+'</br>'
-  //      }
-  //   }
-
-  // }
-  // console.log(bot);
-  // console.log(req.body.result.resolvedQuery);
-  // incident.Chatlogs(req.body.result.resolvedQuery,bot,req.body.sessionId);
-
-
 
   if (req.body.originalRequest.source == 'facebook') {
 
